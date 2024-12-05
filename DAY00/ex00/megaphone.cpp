@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 15:41:02 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/02 20:59:49 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/03 23:49:29 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void print_upper (char *s)
 int main (int ac, char **av)
 {
 	int i;
-
+	
 	i = 1;
 	while (i < ac)
 	{
