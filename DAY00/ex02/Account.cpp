@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:48:56 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/05 12:44:31 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/05 13:05:38 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,8 @@ static std::string getTime(std::string format)
     time_t          currentTime;
     tm*             localTime;
 
-    currentTime = time(NULL);
+    time(&currentTime);
     localTime = localtime(&currentTime);
-    // printf ("%ld\n", currentTime);
     strftime(buffer, sizeof(buffer), format.c_str(), localTime);
     return (buffer);
 }

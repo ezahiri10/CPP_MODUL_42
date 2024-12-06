@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 15:41:02 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/03 23:49:29 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/06 17:17:23 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,6 @@ int main (int ac, char **av)
 		print_upper(av[i]);
 		i++;
 	}
+	if (ac == 1)
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 }
-
-/*
- ** CPP_MODUL 42 **
- Descriptor:
-	
-*/
