@@ -6,12 +6,13 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 20:42:46 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/11/30 20:27:17 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/06 23:06:13 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-# include <iostream>
-#include <iomanip>
+# ifndef CONTACT_HPP
+# define CONTACT_HPP
+
 class Contact 
 {
     private :
@@ -31,3 +32,5 @@ class Contact
         std::string GetNickName ();
         std::string GetNbrTele ();
 };
+
+# endif 

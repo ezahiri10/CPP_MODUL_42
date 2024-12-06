@@ -6,11 +6,11 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 17:45:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/06 17:51:26 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/06 23:16:14 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "head.hpp"
 
 void print_menu()
 {
@@ -40,6 +40,43 @@ long Atoi (std::string s)
     return (res * sign);
 }
 
+bool IsOnlySpaces(std::string s)
+{
+    for (int i = 0; s[i] != 0; i++)
+    {
+        if (s[0] != ' ')
+        {
+            return (false);
+        }
+    }
+    return (true);
+}
+
+bool    IsPrintable(std::string s)
+{
+    for (int i = 0; s[i] != 0; i++)
+    {
+        if (s[i] < 32 || s[i] > 126)
+        {
+            return (false);
+        }
+    }
+    return (true);
+}
+
+bool    IsNumber(std::string s)
+{
+    for (int i = 0; s[i] != 0; i++)
+    {
+        if (s[i] < '0' || s[i] > '9')
+        {
+            std::cout << "Invalid phone number\n";
+            return (false);
+        }
+    }
+    return (true);
+}
+
 void    SearchIndex (PhoneBook& c)
 {
     int         i;
@@ -51,10 +88,12 @@ void    SearchIndex (PhoneBook& c)
         return ;
     }
     c.ShowAll();
-    while (1)
+    while (std::cin.eof() == false)
     {
         std::cout << "Enter index : ";
         std::getline (std::cin, input);
+        if (std::cin.eof())
+            break ;
         i = Atoi (input);
         if (i >= 0 && i < c.get_size())
         {
@@ -69,42 +108,6 @@ void    SearchIndex (PhoneBook& c)
     }
 }
 
-bool IsOnlySpaces(std::string s)
-{
-    for (int i = 0; s[i] != 0; i++)
-    {
-        if (s[0] != ' ')
-        {
-            return (false);
-        }
-    }
-    return (true);
-}
-
-bool IsPrintable(std::string s)
-{
-    for (int i = 0; s[i] != 0; i++)
-    {
-        if (s[i] < 32 || s[i] > 126)
-        {
-            return (false);
-        }
-    }
-    return (true);
-}
-
-bool IsNumber(std::string s)
-{
-    for (int i = 0; s[i] != 0; i++)
-    {
-        if (s[i] < '0' || s[i] > '9')
-        {
-            std::cout << "Invalid phone number\n";
-            return (false);
-        }
-    }
-    return (true);
-}
 
 bool   CheckInput (std::string s)
 
