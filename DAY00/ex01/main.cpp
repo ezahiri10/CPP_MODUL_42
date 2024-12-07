@@ -6,187 +6,123 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 17:45:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/07 13:51:49 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/07 15:48:30 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.hpp"
+#include "head.hpp"
 
 void print_menu()
 {
-    std::cout << "1. ADD" << std::endl;
-    std::cout << "2. SEARCH" << std::endl;
-    std::cout << "3. EXIT" << std::endl;
-} 
-
-long Atoi (std::string s)
-{
-    long    res = 0;
-    int     i = 0;
-    int     sign = 1;
-
-    if (s[0] == '-')
-    {
-        sign = -1;
-        i++;
-    }
-    while (s[i] != '\0')
-    {
-        if (s[i] < '0' || s[i] > '9')
-            return (-1);
-        if (res > 100)
-            return (-1);
-        res = res * 10 + s[i] - '0';
-        i++;
-    }
-    return (res * sign);
+    std::cout << "---------------------------------" << std::endl;
+    std::cout << "|\t" << GREEN << "1 - ADD" << RESET << "\t\t\t|" << std::endl;
+    std::cout << "|\t" << YELLOW << "2 - SEARCH" << RESET << "\t\t|" << std::endl;
+    std::cout << "|\t" << RED << "3 - EXIT" << RESET << "\t\t|" << std::endl;
+    std::cout << "---------------------------------\n\n" << std::endl;
 }
 
-bool IsOnlySpaces(std::string s)
+void    SearchIndex ()
 {
-    for (int i = 0; s[i] != 0; i++)
-    {
-        if (s[0] != ' ')
-        {
-            return (false);
-        }
-    }
-    return (true);
-}
-
-bool    IsPrintable(std::string s)
-{
-    for (int i = 0; s[i] != 0; i++)
-    {
-        if (s[i] < 32 || s[i] > 126)
-        {
-            return (false);
-        }
-    }
-    return (true);
-}
-
-bool    IsNumber(std::string s)
-{
-    for (int i = 0; s[i] != 0; i++)
-    {
-        if (s[i] < '0' || s[i] > '9')
-        {
-            std::cout << "Invalid phone number\n";
-            return (false);
-        }
-    }
-    return (true);
-}
-
-void    SearchIndex (PhoneBook& c)
-{
-    int         i;
+    PhoneBook& c = PhoneBook::getInstance();
     std::string input;
+    int         i;
 
     if (c.get_size() == 0)
     {
-        std::cout << "No contact" << std::endl;
+        std::cout << RED << "No contact" << RESET << std::endl;
         return ;
     }
     c.ShowAll();
-    while (std::cin.eof() == false)
+    while (true)
     {
-        std::cout << "Enter index : ";
+        std::cout << GREEN << "Enter index : " << RESET;
         std::getline (std::cin, input);
         if (std::cin.eof())
             break ;
         i = Atoi (input);
         if (i >= 0 && i < c.get_size())
         {
-            std::cout << "First name : " << c.GetContact(i).GetFirstName() << std::endl;
-            std::cout << "Last name : " << c.GetContact(i).GetLastName() << std::endl;
-            std::cout << "Nick name : " << c.GetContact(i).GetNickName() << std::endl;
-            std::cout << "Phone number : " << c.GetContact(i).GetNbrTele() << std::endl;
-            std::cout << "Secret : " << c.GetContact(i).GetSecret() << std::endl;
+            c.ShowContact(i);
             break;
         }
         else
-            std::cout << "Invalid index" << std::endl;
+            std::cout << RED << "Invalid index" << RESET << std::endl;
     }
 }
 
 
-bool   CheckInput (std::string s)
 
+
+void   CheckInput (Contact& c, std::string s, e_field field)
 {
-    if (IsOnlySpaces (s) == true || s.empty() == true || IsPrintable(s) == false)
-    {
-        std::cout << "Invalid input\n";
+    if (field == FIRST_NAME)
+        c.SetFirstName(s);
+    else if (field == LAST_NAME)
+        c.SetLastName(s);
+    else if (field == NICK_NAME)
+        c.SetNickName(s);
+    else if (field == PHONE_NUMBER)
+        c.SetNbrTele(s);
+    else if (field == SECRET)
+        c.SetSecret(s);
+}
+
+bool AfficheReqsuest(Contact& c , std::string request, e_field field)
+{
+    std::string  respond;
+
+    std::cout << GREEN << request << RESET ;
+    std::getline (std::cin, respond);
+    if (std::cin.eof() || CheckInput (respond) == false 
+        || (field == PHONE_NUMBER && !IsNumber(respond)))
         return (false);
-    }
+    CheckInput (c, respond, field);
     return (true);
 }
 
-void    DataOfContatact(PhoneBook& c)
+void    DataOfContatact()
 {
     Contact add;
-    std::string first_name;
-    std::string last_name;
-    std::string nick_name;
-    std::string phone_number;
-    std::string secret;
 
-    std::cout << "Enter first name : ";
-    std::getline (std::cin, first_name);
-    if (std::cin.eof() || CheckInput (first_name) == false)
+    if (!AfficheReqsuest(add, "Enter first name : ", FIRST_NAME))
         return ;
-    add.SetFirstName(first_name);
-    std::cout << "Enter last name : ";
-    std::getline (std::cin, last_name);
-    if (std::cin.eof () ||  CheckInput (last_name) == false)
+    if (!AfficheReqsuest(add, "Enter last name : ", LAST_NAME))
         return ;
-    add.SetLastName(last_name);
-    std::cout << "Enter nick name : ";
-    std::getline (std::cin, nick_name);
-    if (std::cin.eof () ||  CheckInput (nick_name) == false)
+    if (!AfficheReqsuest(add, "Enter nick name : ", NICK_NAME))
         return ;
-    add.SetNickName(nick_name);
-    std::cout << "Enter phone number : ";
-    std::getline (std::cin, phone_number);
-    if (std::cin.eof () ||  !CheckInput (phone_number) || !IsNumber (phone_number))
+    if (!AfficheReqsuest(add, "Enter phone number : ", PHONE_NUMBER))
         return ;
-    add.SetNbrTele(phone_number);
-    std::cout << "Enter secret : ";
-    std::getline (std::cin, secret);
-    add.SetSecret(secret);
-    c.AddContact(add);
+    if (!AfficheReqsuest(add, "Enter secret : ", SECRET))
+        return ;
+    PhoneBook::getInstance().AddContact(add);
 }
 
-void    check_oper(std::string command, PhoneBook& c)
+void    check_oper(std::string command)
 {
     if (command == "ADD")
-        DataOfContatact (c);
+        DataOfContatact ();
     else if (command == "SEARCH" )
-        SearchIndex (c);
+        SearchIndex ();
     else if (command == "EXIT")
         exit(0);
-    else
-        std::cout << "Invalid command" << std::endl;
+    else if (std::cin.eof() == false)
+        std::cout << RED << "Invalid command" << RESET << std::endl;
 }
 
 int main ()
 {
-    PhoneBook c;
     std::string command;
 
-    c.set_index(0);
-    c.set_size(0);
     print_menu();
-    while (1)
+    while (true)
     {
         if (std::cin.eof())
         {
-            std::cout << "\n\n-------Gooooood bye---------" << std::endl;
-            break ;
+            std::cout << YELLOW << "\nBye" << RESET << std::endl;
+            return (0);
         }
-        std::cout << "enter your opertion : ";
+        std::cout << BLUE << "Enter command : " << RESET;
         std::getline (std::cin, command);
-        check_oper(command, c);
+        check_oper(command);
     }
 }

@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:10:49 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/06 22:24:19 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/07 16:02:10 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,22 +44,40 @@ std::string FixedLength(std::string s)
 
 void   PhoneBook::ShowAll()
 {
-    std::cout << "     index|first name| last name|  nickname" << std::endl;
+    std::cout << GREEN << "---------------------------------------------" << std::endl;
+    std::cout << "|     Index|First Name| Last Name| Nickname|" << std::endl;
+    std::cout << "---------------------------------------------" << std::endl;
     for (int i = 0; i < size; i++)
     {
-        std::cout << std::setw(10) << i << "|";
-        std::cout << std::setw (10) << FixedLength (contacts[i].GetFirstName()) << "|";
-        std::cout << std::setw (10) << FixedLength (contacts[i].GetLastName()) << "|";
-        std::cout << std::setw (10) << FixedLength (contacts[i].GetNickName()) << std::endl;
+        std::cout << "|" << YELLOW << std::setw(10) << i << GREEN << "|";
+        std::cout << YELLOW <<  std::setw(10) << FixedLength(contacts[i].GetFirstName()) << GREEN << "|";
+        std::cout << YELLOW <<  std::setw(10) << FixedLength(contacts[i].GetLastName()) << GREEN << "|";
+        std::cout << YELLOW <<  std::setw(10) << FixedLength(contacts[i].GetNickName()) << GREEN << "|" << std::endl;
     }
+    std::cout << GREEN << "---------------------------------------------" << RESET << std::endl;
 }
 
 void PhoneBook::AddContact(Contact add)
 {
     contacts[index] = add;
     index++;
-    if (size != 8)
+    if (size != MAX_CONTACT)
         size++;
-    if (index == 8)
+    if (index == MAX_CONTACT)
         index = 0;
+}
+
+void PhoneBook::ShowContact (int i)
+{
+    std::cout << YELLOW << "First name : " << RESET << contacts[i].GetFirstName() << std::endl;
+    std::cout << YELLOW << "Last name : " << RESET << contacts[i].GetLastName() << std::endl;
+    std::cout << YELLOW << "Nick name : " << RESET << contacts[i].GetNickName() << std::endl;
+    std::cout << YELLOW << "Phone number : " << RESET << contacts[i].GetNbrTele() << std::endl;
+    std::cout << YELLOW << "Secret : " << RESET << contacts[i].GetSecret() << std::endl;
+}
+
+PhoneBook&  PhoneBook::getInstance ()
+{
+    static PhoneBook c;
+    return (c);
 }

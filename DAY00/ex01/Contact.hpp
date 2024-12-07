@@ -6,14 +6,14 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 20:42:46 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/07 13:51:11 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/07 14:52:46 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef CONTACT_HPP
 # define CONTACT_HPP
 
-# include "head.hpp"
+# include <iostream>
 
 class Contact 
 {
