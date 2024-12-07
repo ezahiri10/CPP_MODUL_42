@@ -13,7 +13,6 @@ NAME = Phonebook
 
 all: $(NAME)
 
-
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 

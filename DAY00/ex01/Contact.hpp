@@ -6,12 +6,14 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 20:42:46 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/06 23:06:13 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/07 13:51:11 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # ifndef CONTACT_HPP
 # define CONTACT_HPP
+
+# include "head.hpp"
 
 class Contact 
 {
@@ -31,6 +33,7 @@ class Contact
         std::string GetLastName ();
         std::string GetNickName ();
         std::string GetNbrTele ();
+        std::string GetSecret ();
 };
 
 # endif 

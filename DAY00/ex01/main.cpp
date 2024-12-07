@@ -6,11 +6,11 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 17:45:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/06 23:16:14 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/07 13:51:49 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.hpp"
+#include "PhoneBook.hpp"
 
 void print_menu()
 {
@@ -33,6 +33,8 @@ long Atoi (std::string s)
     while (s[i] != '\0')
     {
         if (s[i] < '0' || s[i] > '9')
+            return (-1);
+        if (res > 100)
             return (-1);
         res = res * 10 + s[i] - '0';
         i++;
@@ -101,6 +103,7 @@ void    SearchIndex (PhoneBook& c)
             std::cout << "Last name : " << c.GetContact(i).GetLastName() << std::endl;
             std::cout << "Nick name : " << c.GetContact(i).GetNickName() << std::endl;
             std::cout << "Phone number : " << c.GetContact(i).GetNbrTele() << std::endl;
+            std::cout << "Secret : " << c.GetContact(i).GetSecret() << std::endl;
             break;
         }
         else

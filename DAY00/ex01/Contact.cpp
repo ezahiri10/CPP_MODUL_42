@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 20:57:42 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/06 22:32:24 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/07 13:51:23 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,4 +57,8 @@ std::string Contact::GetNbrTele()
     return (NbrTele);
 }
 
+std::string Contact::GetSecret()
+{
+    return (secret);
+}
 
