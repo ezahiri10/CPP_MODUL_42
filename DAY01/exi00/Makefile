@@ -7,12 +7,12 @@ SRC= Zombie.cpp main.cpp newZombie.cpp randomChump.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = a.out
+NAME = Zombie
 
 all: $(NAME)
 
 
-$(NAME): $(OBJ)
+$(NAME): $(OBJ) Zombie.hpp
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 %.o: %.cpp
