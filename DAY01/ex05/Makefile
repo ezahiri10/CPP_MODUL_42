@@ -1,12 +1,9 @@
-#!/bin/bash
 
-cat << 'EOF' > Makefile
-
-CC = c++
+CC =c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC=$(find . -maxdepth 1 -name "*.cpp" -exec basename {} \;)
+SRC= Harl.cpp main.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -18,7 +15,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Harl.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
