@@ -6,13 +6,13 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 15:41:02 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/06 17:17:23 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/15 12:20:01 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-void print_upper (char *s)
+void print_upper (std::string s)
 {
 	for (int i = 0; s[i] != '\0' ; i++)
 	{
@@ -25,14 +25,8 @@ void print_upper (char *s)
 
 int main (int ac, char **av)
 {
-	int i;
-	
-	i = 1;
-	while (i < ac)
-	{
+	for (int i = 1; i < ac; i++)
 		print_upper(av[i]);
-		i++;
-	}
 	if (ac == 1)
 		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 }
