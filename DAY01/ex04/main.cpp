@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 21:22:25 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/15 22:36:37 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/16 12:18:32 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void Interpreter (std::string buffer, std::string name, std::string to_find, std
         pos += to_replace.length();
         pos = buffer.find (to_find, pos);
     }
-    std::ofstream outfile (name + ".replace");
+    std::ofstream outfile ((name + ".replace").c_str());
     if (!outfile.is_open ())
     {
         std::cerr << "Error opening file for reading." << std::endl;
@@ -38,7 +38,7 @@ void Interpreter (std::string buffer, std::string name, std::string to_find, std
 std::string GetFileContent (std::string filename)
 {
     std::stringstream buff;
-    std::ifstream infile (filename);
+    std::ifstream infile (filename.c_str());
     
     if (!infile.is_open ())
     {
