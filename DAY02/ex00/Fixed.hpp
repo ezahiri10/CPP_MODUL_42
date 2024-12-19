@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 19:54:01 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/18 20:53:14 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/19 15:37:53 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 class Fixed
 {
     private :
-        int raw;
-        static const int a;
+        int fixedPointValue;;
+        static const int fractionalBits = 8;
     public :
         Fixed ();
         Fixed (Fixed &F);
