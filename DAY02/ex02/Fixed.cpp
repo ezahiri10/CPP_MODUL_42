@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:37:59 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/21 11:40:16 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/21 12:55:01 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,35 +145,23 @@ Fixed Fixed::operator--(int)
     return (tmp) ;
 }
 
-Fixed Fixed::max(Fixed &F1, Fixed &F2)
+const Fixed &Fixed::max(Fixed &F1, Fixed &F2)
 {
-    if (F1 > F2)
-        return (F1);
-    else
-        return (F2);
+   return (F1 > F2 ? F1 : F2);
 }
 
 
-Fixed Fixed::min(const Fixed &F1,const Fixed &F2)
+const Fixed &Fixed::min(const Fixed &F1,const Fixed &F2)
 {
-    if (F1 > F2)
-        return (F2);
-    else
-        return (F1);
+    return (F1 < F2 ? F1 : F2);
 }
 
-Fixed Fixed::min(Fixed &F1 , Fixed &F2)
+const Fixed &Fixed::min(Fixed &F1 , Fixed &F2)
 {
-    if (F1 > F2)
-        return (F2);
-    else
-        return (F1);
+    return (F1 < F2 ? F1 : F2);
 }
 
-Fixed Fixed::max(const Fixed &F1,const Fixed &F2)
+const Fixed &Fixed::max(const Fixed &F1,const Fixed &F2)
 {
-    if (F1 > F2)
-        return (F1);
-    else
-        return (F2);
+    return (F1 > F2 ? F1 : F2);
 }
