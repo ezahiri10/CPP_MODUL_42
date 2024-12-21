@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:37:59 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/21 13:13:24 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/21 14:02:17 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int Fixed::toInt (void) const
     return (fixedPointValue >> fractionalBits);
 }
 
-bool Fixed::operator!= (const Fixed &F)
+bool Fixed::operator!= (const Fixed &F) const
 {
     return (F.toFloat() != this->toFloat());
 }
@@ -75,17 +75,17 @@ bool Fixed::operator>(const Fixed &F) const
     return (this->toFloat() > F.toFloat ());
 }
 
-bool Fixed::operator>= (const Fixed &F)
+bool Fixed::operator>= (const Fixed &F) const
 {
     return (this->toFloat() >= F.toFloat ());
 }
 
-bool Fixed::operator<= (const Fixed &F)
+bool Fixed::operator<= (const Fixed &F) const
 {
     return (this->toFloat() <= F.toFloat ());
 }
 
-bool Fixed::operator== (const Fixed &F)
+bool Fixed::operator== (const Fixed &F) const
 {
     return (F.toFloat() == this->toFloat());
 }
