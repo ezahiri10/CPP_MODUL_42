@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:03:36 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/21 19:18:17 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/22 13:18:55 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,3 +25,5 @@ class Point
         Fixed get_x(void) const;
         Fixed get_y(void) const;
 };
+
+bool bsp( Point const &a, Point const &b, Point const &c, Point const &point);
