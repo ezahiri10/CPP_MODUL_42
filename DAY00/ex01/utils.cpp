@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:14:59 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/22 15:00:00 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/22 15:04:08 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ long Atoi (std::string s)
 
 bool IsOnlySpaces(std::string s)
 {
-    if (s[0] == 0)
+    if (s[0] == 32)
         return (true);
     for (int i = 0; s[i] != 0; i++)
     {
