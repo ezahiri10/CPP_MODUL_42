@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:10:49 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/22 14:30:16 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/22 14:36:13 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,9 @@ std::string FixedLength(std::string s)
 
 void   PhoneBook::ShowAll()
 {
-    std::cout << GREEN << "---------------------------------------------" << std::endl;
+    std::cout << GREEN << "--------------------------------------------------------" << std::endl;
     std::cout << "|     Index|First Name| Last Name| Phone Nbr| Nick Name|" << std::endl;
-    std::cout << "---------------------------------------------" << std::endl;
+    std::cout << "--------------------------------------------------------" << std::endl;
     for (int i = 0; i < size; i++)
     {
         std::cout << "|" << YELLOW << std::setw(10) << i << GREEN << "|";
@@ -55,7 +55,7 @@ void   PhoneBook::ShowAll()
         std::cout << YELLOW <<  std::setw(10) << FixedLength(contacts[i].GetNbrTele()) << GREEN << "|";
         std::cout << YELLOW <<  std::setw(10) << FixedLength(contacts[i].GetNickName()) << GREEN << "|" << std::endl;
     }
-    std::cout << GREEN << "---------------------------------------------" << RESET << std::endl;
+    std::cout << GREEN << "--------------------------------------------------------" << RESET << std::endl;
 }
 
 void PhoneBook::AddContact(Contact add)
