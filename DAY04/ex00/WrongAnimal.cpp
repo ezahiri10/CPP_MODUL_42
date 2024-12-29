@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongWrongAnimal.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 17:29:40 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 19:02:28 by ezahiri          ###   ########.fr       */
+/*   Created: 2024/12/29 17:32:41 by ezahiri           #+#    #+#             */
+/*   Updated: 2024/12/29 19:08:41 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL
-#define ANIMAL
+#include "WrongAnimal.hpp"
 
-#include <iostream>
-
-class Animal 
+WrongAnimal::WrongAnimal ()
 {
-    protected :
-        std::string type;
-    public :
-        Animal();
-        virtual ~Animal();
-        Animal(std::string type);
-        virtual void makeSound( void );
-        std::string get_type ( void ) const;
-};
+    this->type = "WrongAnimal";    
+}
 
-#endif
+WrongAnimal::WrongAnimal(std::string type)
+{
+    this->type = type;
+}
+
+WrongAnimal::~WrongAnimal (){}
+
+void WrongAnimal::makeSound ( void )
+{
+    std::cout << " sound of any WrongAnimal " << std::endl;
+}
+
+std::string WrongAnimal::get_type ( void ) const
+{
+    return (this->type);
+}

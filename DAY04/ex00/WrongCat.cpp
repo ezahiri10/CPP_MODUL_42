@@ -1,30 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongWrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 17:29:40 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 19:02:28 by ezahiri          ###   ########.fr       */
+/*   Created: 2024/12/29 17:44:31 by ezahiri           #+#    #+#             */
+/*   Updated: 2024/12/29 18:57:27 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL
-#define ANIMAL
+#include "WrongCat.hpp"
 
-#include <iostream>
-
-class Animal 
+WrongCat::WrongCat ()
 {
-    protected :
-        std::string type;
-    public :
-        Animal();
-        virtual ~Animal();
-        Animal(std::string type);
-        virtual void makeSound( void );
-        std::string get_type ( void ) const;
-};
+    this->type = "WrongCat";    
+}
 
-#endif
+WrongCat::WrongCat(std::string type)
+{
+    this->type = type;
+}
+
+WrongCat::~WrongCat (){}
+
+void WrongCat::makeSound ( void )
+{
+    std::cout << " sound of WrongCats " << std::endl;
+}
+
+std::string WrongCat::get_type ( void ) const
+{
+    return (this->type);
+}

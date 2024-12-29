@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongWrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:29:40 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 19:02:28 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/29 19:01:59 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,14 @@
 
 #include <iostream>
 
-class Animal 
+class WrongAnimal 
 {
     protected :
         std::string type;
     public :
-        Animal();
-        virtual ~Animal();
-        Animal(std::string type);
+        WrongAnimal();
+        ~WrongAnimal();
+        WrongAnimal(std::string type);
         virtual void makeSound( void );
         std::string get_type ( void ) const;
 };
