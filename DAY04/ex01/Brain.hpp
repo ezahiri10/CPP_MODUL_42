@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 17:46:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 21:39:03 by ezahiri          ###   ########.fr       */
+/*   Created: 2024/12/29 20:05:39 by ezahiri           #+#    #+#             */
+/*   Updated: 2024/12/29 21:27:56 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Cat.hpp"
-#include "Dog.hpp"
+#ifndef BRAIN_HPP
+#define  BRAIN_HPP
 
-int main ()
+#include <iostream>
+
+class Brain 
 {
-    Animal *A[4];
+    public :
+        std::string ideas[100];
+        Brain ();
+        Brain (const Brain &other);
+        Brain& operator=(const Brain& other);
+        ~Brain ();
+};
 
-    for (int i = 0; i < 2; i++)
-    {
-        A[i] = new Dog;
-    }
-    for (int i = 2; i < 4 ; i++)
-    {
-        A[i] = new Cat;
-    }
-    for (int i = 0; i < 4 ; i++)
-    {
-        delete A[i];
-    }
-}
+#endif
