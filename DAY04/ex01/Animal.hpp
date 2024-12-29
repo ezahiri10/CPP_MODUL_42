@@ -6,13 +6,14 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:29:40 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 19:02:28 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/29 23:18:24 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef ANIMAL
 #define ANIMAL
 
+#include <sstream>
 #include <iostream>
 
 class Animal 

@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:51:57 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 21:40:44 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/29 23:24:05 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 
 Brain::Brain ()
 {
+    std::ostringstream  oss;
+
     for (int i = 0; i < 100; i++)
     {
-        ideas[i] = "idea" + std::to_string (i);
+        oss << i;
+        ideas[i] = "idea" + oss.str();
     }
     std::cout << " Brain Has been created " << std::endl;
 }

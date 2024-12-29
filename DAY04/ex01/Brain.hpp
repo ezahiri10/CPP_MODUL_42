@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 20:05:39 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 21:27:56 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/29 23:24:53 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define  BRAIN_HPP
 
 #include <iostream>
-
+#include <sstream>
 class Brain 
 {
     public :
