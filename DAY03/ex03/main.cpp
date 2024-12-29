@@ -6,20 +6,21 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 15:33:19 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 13:27:59 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/29 14:52:32 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "FragTrap.hpp"
+#include "DiamondTrap.hpp"
 
 int main() {
-    FragTrap fragTrap("Fraggy");
+    DiamondTrap dt("DiamondBoy");
 
-    fragTrap.attack("Enemy");
-    fragTrap.takeDamage(50);
-    fragTrap.beRepaired(25);
-    fragTrap.attack("Enemy");
-    fragTrap.takeDamage(100);
-    fragTrap.highFivesGuys();   
-	return 0;
+    dt.attack("Enemy");  // Uses ScavTrap attack
+    dt.takeDamage(40);
+    dt.beRepaired(20);
+    dt.highFivesGuys();
+    dt.guardGate();
+    dt.whoAmI();
+
+    return 0;
 }

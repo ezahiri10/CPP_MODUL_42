@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   FragTrap.hpp                                       :+:      :+:    :+:   */
+/*   DiamondTrap.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/29 12:58:46 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 14:56:35 by ezahiri          ###   ########.fr       */
+/*   Created: 2024/12/29 14:30:26 by ezahiri           #+#    #+#             */
+/*   Updated: 2024/12/29 14:57:39 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class FragTrap : virtual public ClapTrap
+class DiamondTrap : public ScavTrap, public FragTrap
 {
+    private :
+        std::string name;
     public :
-        FragTrap ();
-        ~FragTrap ();
-        FragTrap (std::string name);
-        void highFivesGuys();
+        DiamondTrap (std::string name);
+        DiamondTrap ();
+        ~DiamondTrap ();
+        void whoAmI( void );
+        void attack(const std::string& target);
 };

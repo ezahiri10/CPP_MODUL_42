@@ -6,13 +6,13 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 23:12:32 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 12:33:49 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/29 14:56:52 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : virtual public ClapTrap
 {
     public :
         ScavTrap ();
