@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:08:11 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/28 14:48:23 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/28 23:14:33 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class ClapTrap
 {
-    private :
+    protected :
         std::string name;
         unsigned int hitPoints;
         unsigned int energyPoints;

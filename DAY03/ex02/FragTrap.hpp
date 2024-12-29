@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 18:53:16 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/28 18:57:33 by ezahiri          ###   ########.fr       */
+/*   Created: 2024/12/29 12:58:46 by ezahiri           #+#    #+#             */
+/*   Updated: 2024/12/29 13:27:28 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ class FragTrap : public ClapTrap
 {
     public :
         FragTrap ();
-        FragTrap (std::string name);
         ~FragTrap ();
-        void highFivesGuys(void);
+        FragTrap (std::string name);
+        void highFivesGuys();
 };
-

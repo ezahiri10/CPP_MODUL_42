@@ -5,32 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 18:58:25 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/28 19:26:12 by ezahiri          ###   ########.fr       */
+/*   Created: 2024/12/29 13:02:18 by ezahiri           #+#    #+#             */
+/*   Updated: 2024/12/29 13:09:14 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap ()
-{};
+FragTrap::FragTrap (){}
 
-FragTrap::FragTrap (std::string name) : ClapTrap (name)
+FragTrap::FragTrap(std::string name) : ClapTrap (name)
 {
-    std::cout << "FragTrap "  << " constructed!" << std::endl;
+    this->name = name;
+    this->hitPoints = 100;
+    this->energyPoints = 100;
+    this->attackDamage = 30;
+    std::cout << "FragTrap " << name << " constructed!" << std::endl;
 }
 
-FragTrap::~FragTrap()
+FragTrap::~FragTrap ()
 {
-    std::cout << "FragTrap "  << " destructed!" << std::endl;
+    std::cout << "FragTrap " << name << " destructed!" << std::endl;
 }
 
-void FragTrap::highFivesGuys ( void )
+void FragTrap::highFivesGuys ()
 {
-    std::cout << "------ HIgHt  FIVE   GUYZ -----" << std::endl;
+    std::cout << "FragTrap " << name << " requests a high five!" << std::endl;
 }
-
-
-
-
-

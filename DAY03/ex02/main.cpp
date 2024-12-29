@@ -5,22 +5,21 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/28 19:16:18 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/28 19:18:37 by ezahiri          ###   ########.fr       */
+/*   Created: 2024/12/28 15:33:19 by ezahiri           #+#    #+#             */
+/*   Updated: 2024/12/29 13:27:59 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 int main() {
-    FragTrap clap("CL4P-TP");
+    FragTrap fragTrap("Fraggy");
 
-    clap.attack("target1");
-    clap.takeDamage(5);
-    clap.beRepaired(3);
-    clap.attack("target2");
-    clap.takeDamage(10);
-    clap.beRepaired(5);
-
-    return 0;
+    fragTrap.attack("Enemy");
+    fragTrap.takeDamage(50);
+    fragTrap.beRepaired(25);
+    fragTrap.attack("Enemy");
+    fragTrap.takeDamage(100);
+    fragTrap.highFivesGuys();   
+	return 0;
 }

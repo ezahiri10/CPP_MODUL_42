@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/28 14:47:16 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/28 19:25:14 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/28 15:55:11 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 ClapTrap::ClapTrap ()
 {}
 
-ClapTrap::ClapTrap (std::string name) : hitPoints (100), energyPoints (100), attackDamage (30)
+ClapTrap::ClapTrap (std::string name) : hitPoints (10), energyPoints (10), attackDamage (0)
 {
     this->name = name;
     std::cout << "ClapTrap " << name << " constructed!" << std::endl;
