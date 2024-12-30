@@ -6,13 +6,13 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:14:59 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/30 21:26:20 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/30 21:30:04 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.hpp"
 
-long Atoi (std::string s)
+long to_digit (std::string s)
 {
     long    res = 0;
     int     i = 0;
@@ -22,7 +22,7 @@ long Atoi (std::string s)
         return (-1);
     while (s[i] != '\0')
     {
-        if (s[i] < '0' || s[i] > '9')
+        if (std::isdigit(s[i]) == false)
             return (-1);
         if (res > 100)
             return (-1);

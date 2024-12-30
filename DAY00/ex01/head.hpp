@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 22:21:24 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/16 12:15:25 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/30 21:30:04 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ typedef enum
 
 
 
-long Atoi (std::string s);
+long to_digit (std::string s);
 bool IsOnlySpaces(std::string s);
 bool IsPrintable(std::string s);
 bool IsNumber(std::string s);

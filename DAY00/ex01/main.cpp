@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 17:45:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/07 15:48:30 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/30 21:30:04 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void    SearchIndex ()
         std::getline (std::cin, input);
         if (std::cin.eof())
             break ;
-        i = Atoi (input);
+        i = to_digit (input);
         if (i >= 0 && i < c.get_size())
         {
             c.ShowContact(i);
