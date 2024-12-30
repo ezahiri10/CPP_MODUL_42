@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:14:59 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/22 15:04:08 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/30 20:38:29 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,10 +43,8 @@ bool IsOnlySpaces(std::string s)
         return (true);
     for (int i = 0; s[i] != 0; i++)
     {
-        if (s[i] != ' ')
-        {
+        if (std::isspace(s[i]) == false)
             return (false);
-        }
     }
     return (true);
 }
@@ -55,10 +53,8 @@ bool    IsPrintable(std::string s)
 {
     for (int i = 0; s[i] != 0; i++)
     {
-        if (s[i] < 32 || s[i] > 126)
-        {
+        if (std::isprint(s[i]) == false)
             return (false);
-        }
     }
     return (true);
 }
