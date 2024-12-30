@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 17:45:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/30 21:30:04 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/30 22:42:26 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,12 @@ void    SearchIndex ()
         std::getline (std::cin, input);
         if (std::cin.eof())
             break ;
-        i = to_digit (input);
+        if (input.empty() || input.length() > 1 || IsNumber(input) == false)
+        {
+            std::cout << RED << "Invalid index" << RESET << std::endl;
+            continue;
+        }
+        i = std::atoi(input.c_str());
         if (i >= 0 && i < c.get_size())
         {
             c.ShowContact(i);
@@ -49,9 +54,6 @@ void    SearchIndex ()
             std::cout << RED << "Invalid index" << RESET << std::endl;
     }
 }
-
-
-
 
 void   CheckInput (Contact& c, std::string s, e_field field)
 {
