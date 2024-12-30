@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/07 14:14:59 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/30 20:38:29 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/30 20:47:58 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ bool    IsNumber(std::string s)
 {
     for (int i = 0; s[i] != 0; i++)
     {
-        if (s[i] < '0' || s[i] > '9')
+        if (std::isdigit(s[i]) == false)
         {
             std::cout << "Invalid phone number\n";
             return (false);
