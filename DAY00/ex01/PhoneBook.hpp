@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:11:16 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/07 15:27:14 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/30 20:15:42 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ class PhoneBook
         void    AddContact (Contact add);
         void    ShowAll ();
         void    ShowContact (int i);
-        void    set_size(int  i);
         void    set_index(int i);
         int     get_size();
         Contact GetContact(int i);

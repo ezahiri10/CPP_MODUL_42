@@ -6,16 +6,11 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:10:49 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/22 14:36:13 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/30 20:15:49 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.hpp"
-
-void PhoneBook::set_size(int i)
-{
-    size = i;
-}
 
 void PhoneBook::set_index(int i)
 {
