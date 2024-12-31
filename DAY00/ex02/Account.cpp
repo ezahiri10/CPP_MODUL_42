@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/04 20:48:56 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/05 13:05:38 by ezahiri          ###   ########.fr       */
+/*   Updated: 2024/12/31 12:44:58 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ static std::string getTime(std::string format)
 
 void	Account::_displayTimestamp( void ) 
 {
-    std::cout << getTime("[%Y%m%d_%H%M%S] ");
+    std::cout << getTime("[%Y%m%d_%H%M%S]");
 }
 
 void Account::displayAccountsInfos( void )
