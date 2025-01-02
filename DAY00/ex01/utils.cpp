@@ -12,7 +12,7 @@
 
 #include "head.hpp"
 
-bool IsOnlySpaces(std::string s)
+bool IsOnlySpaces(std::string &s)
 {
     if (s[0] == 32)
         return (true);
@@ -24,7 +24,7 @@ bool IsOnlySpaces(std::string s)
     return (true);
 }
 
-bool    IsPrintable(std::string s)
+bool    IsPrintable(std::string &s)
 {
     for (int i = 0; s[i] != 0; i++)
     {
@@ -34,7 +34,7 @@ bool    IsPrintable(std::string s)
     return (true);
 }
 
-bool    IsNumber(std::string s)
+bool    IsNumber(std::string &s)
 {
     for (int i = 0; s[i] != 0; i++)
     {
@@ -47,7 +47,7 @@ bool    IsNumber(std::string s)
     return (true);
 }
 
-bool   CheckInput (std::string s)
+bool   CheckInput (std::string &s)
 {
     if (IsOnlySpaces (s) == true || s.empty() == true || IsPrintable(s) == false)
     {

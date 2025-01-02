@@ -33,10 +33,10 @@ typedef enum
 }   e_field;
 
 
-bool IsOnlySpaces(std::string s);
-bool IsPrintable(std::string s);
-bool IsNumber(std::string s);
-bool CheckInput (std::string s);
+bool IsOnlySpaces(std::string& s);
+bool IsPrintable(std::string& s);
+bool IsNumber(std::string& s);
+bool CheckInput (std::string& s);
 
 
 #endif
