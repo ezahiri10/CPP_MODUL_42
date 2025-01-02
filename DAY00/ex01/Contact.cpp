@@ -6,58 +6,58 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 20:57:42 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/07 13:51:23 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/02 14:41:17 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "head.hpp"
 
-void        Contact::SetFirstName (std::string s)
+void        Contact::SetFirstName (std::string &s)
 {
     FirstName = s;
 }
 
-void        Contact::SetLastName (std::string s)
+void        Contact::SetLastName (std::string &s)
 {
     LastName = s;
 }
 
-void        Contact::SetNickName (std::string s)
+void        Contact::SetNickName (std::string &s)
 {
     NickName = s;
 }
 
-void      Contact::SetNbrTele (std::string s)
+void      Contact::SetNbrTele (std::string &s)
 {
     NbrTele = s;
 }
 
-void      Contact::SetSecret (std::string s)
+void      Contact::SetSecret (std::string &s)
 {
     secret  = s;
 }
 
-std::string Contact::GetFirstName ()
+const std::string& Contact::GetFirstName ()
 {
     return (FirstName);
 }
 
-std::string Contact::GetLastName ()
+const std::string& Contact::GetLastName ()
 {
     return (LastName);
 }
 
-std::string Contact::GetNickName ()
+const std::string& Contact::GetNickName ()
 {
     return (NickName);
 }
 
-std::string Contact::GetNbrTele()
+const std::string& Contact::GetNbrTele()
 {
     return (NbrTele);
 }
 
-std::string Contact::GetSecret()
+const std::string& Contact::GetSecret()
 {
     return (secret);
 }

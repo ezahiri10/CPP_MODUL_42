@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/06 17:45:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/30 22:42:26 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/02 14:39:16 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ void    SearchIndex ()
     }
 }
 
-void   CheckInput (Contact& c, std::string s, e_field field)
+void   CheckInput (Contact& c, std::string &s, e_field field)
 {
     if (field == FIRST_NAME)
         c.SetFirstName(s);
