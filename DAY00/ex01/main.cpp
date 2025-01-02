@@ -55,7 +55,7 @@ void    SearchIndex ()
     }
 }
 
-void   CheckInput (Contact& c, std::string s, e_field field)
+void   CheckInput (Contact& c, std::string &s, e_field field)
 {
     if (field == FIRST_NAME)
         c.SetFirstName(s);

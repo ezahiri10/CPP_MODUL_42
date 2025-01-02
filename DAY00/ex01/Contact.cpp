@@ -12,27 +12,27 @@
 
 #include "head.hpp"
 
-void        Contact::SetFirstName (std::string s)
+void        Contact::SetFirstName (std::string &s)
 {
     FirstName = s;
 }
 
-void        Contact::SetLastName (std::string s)
+void        Contact::SetLastName (std::string &s)
 {
     LastName = s;
 }
 
-void        Contact::SetNickName (std::string s)
+void        Contact::SetNickName (std::string &s)
 {
     NickName = s;
 }
 
-void      Contact::SetNbrTele (std::string s)
+void      Contact::SetNbrTele (std::string &s)
 {
     NbrTele = s;
 }
 
-void      Contact::SetSecret (std::string s)
+void      Contact::SetSecret (std::string &s)
 {
     secret  = s;
 }

@@ -24,11 +24,11 @@ class Contact
         std::string  NbrTele;
         std::string  secret;
     public :
-        void        SetFirstName (std::string s);
-        void        SetLastName (std::string s);
-        void        SetNickName (std::string s);
-        void        SetSecret (std::string s);
-        void        SetNbrTele (std::string s);
+        void        SetFirstName (std::string &s);
+        void        SetLastName (std::string &s);
+        void        SetNickName (std::string &s);
+        void        SetSecret (std::string &s);
+        void        SetNbrTele (std::string &s);
         std::string GetFirstName ();
         std::string GetLastName ();
         std::string GetNickName ();
