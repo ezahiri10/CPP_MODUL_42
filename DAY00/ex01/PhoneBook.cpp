@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 16:10:49 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/01 20:09:43 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/02 14:44:06 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void   PhoneBook::ShowAll()
     std::cout << GREEN << "---------------------------------------------" << RESET << std::endl;
 }
 
-void PhoneBook::AddContact(Contact add)
+void PhoneBook::AddContact(Contact &add)
 {
     contacts[index] = add;
     index++;
