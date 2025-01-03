@@ -12,10 +12,10 @@ NAME = Zombie
 all: $(NAME)
 
 
-$(NAME): $(OBJ) Zombie.hpp
+$(NAME): $(OBJ) 
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp Zombie.hpp
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
