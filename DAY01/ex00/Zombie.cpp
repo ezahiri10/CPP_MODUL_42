@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 19:22:47 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/12 20:04:00 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/03 19:41:51 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,5 @@ Zombie::~Zombie ()
 {
     std::cout << name << " has been destroyed" << std::endl;
 }
-
-Zombie::Zombie() {};
 
 Zombie::Zombie (std::string n) : name (n) {};
