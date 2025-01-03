@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 19:11:30 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/12 21:47:21 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/03 20:01:31 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ class Zombie
         std::string name;
     public :
         void announce( void );
-        Zombie ();
         void get_name (std::string n);
         ~Zombie (void);
     

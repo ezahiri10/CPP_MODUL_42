@@ -7,7 +7,7 @@ SRC=    Zombie.cpp main.cpp zombieHorde.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = a.out
+NAME = Zombie
 
 all: $(NAME)
 
