@@ -6,13 +6,11 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/15 17:15:31 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/04 15:46:07 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/04 15:47:18 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Harl.hpp"
-
-
 
 int main (int ac , char **av)
 {
