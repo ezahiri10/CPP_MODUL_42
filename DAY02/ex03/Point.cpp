@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/21 15:10:34 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/22 13:54:13 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/05 22:58:16 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,7 @@ Point &Point::operator=(const Point &P)
     return (*this);
 }
 
-Point::Point (const Point &P) // : x(P.x), y(P.y) // why  this attributes is pravite 
-{
-    *this = P;
-}
+Point::Point (const Point &P)  : x(P.x), y(P.y)
+{}
 
 
