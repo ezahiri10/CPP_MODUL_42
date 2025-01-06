@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 12:59:15 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/21 14:01:26 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/06 15:44:02 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,3 +47,5 @@ class Fixed
         static const Fixed &max(const Fixed &F1,const Fixed &F2);
         static const Fixed &min(const Fixed &F1,const Fixed &F2);
 };
+
+std::ostream &operator<< (std::ostream &os, const Fixed &F);
