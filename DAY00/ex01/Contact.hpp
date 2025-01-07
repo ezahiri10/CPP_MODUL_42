@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 20:42:46 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/07 14:52:46 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/02 14:40:58 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,11 @@ class Contact
         void        SetNickName (std::string &s);
         void        SetSecret (std::string &s);
         void        SetNbrTele (std::string &s);
-        std::string GetFirstName ();
-        std::string GetLastName ();
-        std::string GetNickName ();
-        std::string GetNbrTele ();
-        std::string GetSecret ();
+        const std::string& GetFirstName ();
+        const std::string& GetLastName ();
+        const std::string& GetNickName ();
+        const std::string& GetNbrTele ();
+        const std::string& GetSecret ();
 };
 
 # endif 

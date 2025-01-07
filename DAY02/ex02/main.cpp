@@ -6,20 +6,11 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 16:01:28 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/21 11:44:25 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/06 15:44:18 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
-#include <iostream>
-
-
-std::ostream &operator<< (std::ostream &os, const Fixed &F)
-{
-    os << F.toFloat ();
-	return (os);
-}
-
 
 int main( void ) 
 {

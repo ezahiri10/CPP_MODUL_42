@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 21:05:30 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/12 22:05:44 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/04 14:48:37 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,16 @@
 
 Zombie* zombieHorde( int N, std::string name )
 {
+    if (N <= 0)
+        {
+            std::cerr << "invalid number \n";
+            return (NULL);
+        }
     Zombie *arr = new Zombie[N];
-    std::string new_name = name;
-    std::stringstream ss;
 
     for (int i = 0; i < N ; i++)
     {
-        ss << i;
-        new_name .append ( ss.str());
-        ss.str ("");
-        // ss.clear ();
-        arr[i].get_name (new_name);
-        new_name = name;
+        arr[i].set_name (name);
     }
     return (arr);
 }

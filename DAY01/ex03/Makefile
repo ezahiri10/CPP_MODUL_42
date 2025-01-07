@@ -5,7 +5,7 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC= HumanA.cpp HumanB.cpp main.cpp Weapon.cpp
 
-HEADER = HumanA.hpp HumanB.hpp Weapon.hpp
+HEADERS = HumanA.hpp HumanB.hpp Weapon.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
@@ -17,7 +17,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
-%.o: %.cpp
+%.o: %.cpp $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:37:59 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/21 14:02:17 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/06 15:43:48 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -156,4 +156,10 @@ const Fixed &Fixed::min(Fixed &F1 , Fixed &F2)
 const Fixed &Fixed::max(const Fixed &F1,const Fixed &F2)
 {
     return (F1 > F2 ? F1 : F2);
+}
+
+std::ostream &operator<< (std::ostream &os, const Fixed &F)
+{
+    os << F.toFloat ();
+	return (os);
 }

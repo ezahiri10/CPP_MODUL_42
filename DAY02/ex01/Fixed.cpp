@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/19 18:13:51 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/19 21:51:32 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/06 15:41:59 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,8 @@ int Fixed::toInt (void) const
     return (fixedPointValue >> fractionalBits);
 }
 
+std::ostream &operator<< (std::ostream &os, const Fixed &F)
+{
+    os << F.toFloat ();
+	return (os);
+}
