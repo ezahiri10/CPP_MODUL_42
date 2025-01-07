@@ -57,3 +57,17 @@ void ClapTrap::beRepaired (unsigned int amount)
         std::cout << "ClapTrap " << name << " has no energy or hit points left to repair!" << std::endl;
     }
 }
+
+ClapTrap::ClapTrap (const ClapTrap &other)
+{
+    *this = other;
+}
+
+ClapTrap & ClapTrap::operator= (const ClapTrap &other)
+{
+    this->name = other.name;
+    this->hitPoints = other.hitPoints;
+    this->energyPoints = other.energyPoints;
+    this->attackDamage = other.attackDamage;
+    return (*this);
+}
