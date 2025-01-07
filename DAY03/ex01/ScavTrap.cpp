@@ -45,3 +45,16 @@ void    ScavTrap::attack (const std::string& target)
          std::cout << "ScavTrap " << name << " has no energy or hit points left to attack!" << std::endl;   
 }
 
+ScavTrap::ScavTrap (const ScavTrap &other) : ClapTrap (other)
+{
+    *this = other;
+}
+
+ScavTrap & ScavTrap::operator= (const ScavTrap &other)
+{
+    this->name = other.name;
+    this->hitPoints = other.hitPoints;
+    this->energyPoints = other.energyPoints;
+    this->attackDamage = other.attackDamage;
+    return (*this);
+}
