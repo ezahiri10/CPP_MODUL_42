@@ -15,7 +15,7 @@
 int main() {
     DiamondTrap dt("DiamondBoy");
 
-    dt.attack("Enemy");  // Uses ScavTrap attack
+    dt.attack("Enemy");
     dt.takeDamage(40);
     dt.beRepaired(20);
     dt.highFivesGuys();
