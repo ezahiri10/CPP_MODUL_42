@@ -16,7 +16,7 @@
 ClapTrap::ClapTrap ()
 {}
 
-ClapTrap::ClapTrap (std::string name) : hitPoints (10), energyPoints (10), attackDamage (0)
+ClapTrap::ClapTrap (const std::string &name) : hitPoints (10), energyPoints (10), attackDamage (0)
 {
     this->name = name;
     std::cout << "ClapTrap " << name << " constructed!" << std::endl;
@@ -29,12 +29,12 @@ ClapTrap::~ClapTrap ()
 
 void    ClapTrap::attack (const std::string& target)
 {
-     if (energyPoints > 0 && hitPoints > 0) 
-     {
+    if (energyPoints > 0 && hitPoints > 0) 
+    {
         std::cout << "ClapTrap " << name << " attacks " << target 
                   << ", causing " << attackDamage << " points of damage!" << std::endl;
         energyPoints--;
-     }
+    }
      else
          std::cout << "ClapTrap " << name << " has no energy or hit points left to attack!" << std::endl;   
 }
