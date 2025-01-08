@@ -16,7 +16,7 @@
 ClapTrap::ClapTrap ()
 {}
 
-ClapTrap::ClapTrap (std::string name) : hitPoints (10), energyPoints (10), attackDamage (0)
+ClapTrap::ClapTrap (const std::string &name) : hitPoints (10), energyPoints (10), attackDamage (0)
 {
     this->name = name;
     std::cout << "ClapTrap " << name << " constructed!" << std::endl;
