@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CLAPTAP 
-#define CLAPTAP
+#ifndef CLAPTAP_HPP
+#define CLAPTAP_HPP
 
 #include <iostream>
 
