@@ -12,7 +12,11 @@
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap (){}
+FragTrap::FragTrap ()
+{
+    this->hitPoints = 100;
+    this-> attackDamage = 30;
+}
 
 FragTrap::FragTrap(const std::string &name) : ClapTrap (name)
 {

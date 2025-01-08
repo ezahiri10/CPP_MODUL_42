@@ -12,7 +12,10 @@
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap (){}
+ScavTrap::ScavTrap ()
+{
+    this->energyPoints = 50;
+}
 
 ScavTrap::ScavTrap(const std::string &name) : ClapTrap (name)
 {
