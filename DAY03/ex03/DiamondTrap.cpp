@@ -15,7 +15,7 @@
 DiamondTrap::DiamondTrap ()
 {}
 
-DiamondTrap::DiamondTrap (std::string name) : ClapTrap (name + "_clap_name")
+DiamondTrap::DiamondTrap (const std::string &name) : ClapTrap (name + "_clap_name")
 {
     this->name = name;
     hitPoints = FragTrap::hitPoints;

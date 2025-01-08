@@ -14,7 +14,7 @@
 
 ScavTrap::ScavTrap (){}
 
-ScavTrap::ScavTrap(std::string name) : ClapTrap (name)
+ScavTrap::ScavTrap(const std::string &name) : ClapTrap (name)
 {
     this->name = name;
     this->hitPoints = 100;
