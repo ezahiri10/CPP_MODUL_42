@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL
-#define ANIMAL
+#ifndef WRONGANIMAL_HPP
+#define WRONGANIMAL_HPP
 
 #include <iostream>
 
@@ -21,7 +21,7 @@ class WrongAnimal
         std::string type;
     public :
         WrongAnimal();
-        ~WrongAnimal();
+        virtual ~WrongAnimal();
         WrongAnimal(std::string type);
         virtual void makeSound( void );
         std::string get_type ( void ) const;

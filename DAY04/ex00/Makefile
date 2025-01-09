@@ -3,7 +3,7 @@ CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
-SRC=$(find . -maxdepth 1 -name "*.cpp" -exec basename {} \;)
+SRC= Animal.cpp Cat.cpp Dog.cpp WrongAnimal.cpp WrongCat.cpp main.cpp 
 
 OBJ = $(SRC:.cpp=.o)
 

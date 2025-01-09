@@ -1,3 +1,16 @@
 .vscode
 EXAMPLE
 .DS_Store
+a.out
+
+# object files
+*.o
+# libraries
+*.lib
+# shared library files
+*.so
+# static library files
+*.a
+# package files
+*.deb
+
