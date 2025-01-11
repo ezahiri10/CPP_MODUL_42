@@ -33,3 +33,14 @@ std::string WrongCat::get_type ( void ) const
 {
     return (this->type);
 }
+
+WrongCat::WrongCat(WrongCat const & other) : WrongAnimal(other)
+{
+    *this = other;
+}
+
+WrongCat & WrongCat::operator=(WrongCat const & other)
+{
+    this->type = other.type;
+    return (*this);
+}

@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:42:09 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 18:10:50 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 21:52:43 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ class Dog : public Animal
 {
     public :
         Dog();
+        Dog(const Dog &cpy);
+        Dog &operator=(const Dog &cpy);
         ~Dog();
         Dog(std::string type);
         void makeSound ();

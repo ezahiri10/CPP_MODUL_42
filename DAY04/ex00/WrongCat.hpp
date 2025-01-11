@@ -16,6 +16,8 @@ class WrongCat : public WrongAnimal
 {
     public :
         WrongCat();
+        WrongCat(WrongCat const & other);
+        WrongCat & operator=(WrongCat const & other);
         ~WrongCat();
         WrongCat(std::string type);
         void makeSound ();
