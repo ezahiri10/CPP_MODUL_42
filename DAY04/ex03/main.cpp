@@ -6,11 +6,15 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 16:03:41 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 16:17:55 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:35:49 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.hpp"
+#include "Character.hpp"
+#include "MateriaSource.hpp"
+#include "AMateria.hpp"
+#include "Ice.hpp"
+#include "Cure.hpp"
 
 int main()
 {

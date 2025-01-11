@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:09:58 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 16:19:13 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:32:52 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #ifndef MATERIASOURCE_HPP
 #define MATERIASOURCE_HPP
 
-#include "head.hpp"
+#include "IMateriaSource.hpp"
 
 class MateriaSource : public IMateriaSource
 {

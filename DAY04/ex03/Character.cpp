@@ -6,11 +6,11 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 13:17:38 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 16:16:38 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:41:44 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.hpp"
+#include "Character.hpp"
 
 Character::Character()
 {}
@@ -61,7 +61,7 @@ void Character::equip(AMateria *m)
 
 void Character::unequip (int idx)
 {
-    delete this->slots[idx];
+    // delete this->slots[idx];
     this->slots[idx] = NULL;
 }
 
@@ -72,14 +72,14 @@ std::string const & Character::getName () const
 
 void Character::use(int idx, ICharacter &target)
 {
-    this->slots[idx]->use (target);
+    this->slots[idx]->use(target);
 }
 
 Character::~Character ()
 {
-    for (int i; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
-        delete this->slots[i];
+        // delete this->slots[i];
     }
 }
 

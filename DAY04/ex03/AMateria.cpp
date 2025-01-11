@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 10:54:37 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 16:20:16 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:42:22 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,6 @@ std::string const &AMateria::getType () const
 }
 
 void  AMateria::use(ICharacter& target)
-{}
+{
+    (void) target;
+}

@@ -6,11 +6,11 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:49:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 16:18:03 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:42:05 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.hpp"
+#include "MateriaSource.hpp"
 
 MateriaSource::MateriaSource(){};
 
@@ -35,9 +35,9 @@ MateriaSource &MateriaSource::operator=(const MateriaSource& other)
 
 MateriaSource::~MateriaSource()
 {
-    for (int i; i < 4; i++)
+    for (int i = 0; i < 4; i++)
     {
-        delete this->sourcs[i];
+        // delete this->sourcs[i];
     }
 }
 

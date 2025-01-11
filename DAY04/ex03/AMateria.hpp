@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 10:43:15 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 16:20:35 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:37:04 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 #include "ICharacter.hpp"
 #include <iostream>
 
+class ICharacter;
 class AMateria
 {
     protected:

@@ -6,11 +6,11 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 12:08:51 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 16:16:59 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:34:35 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.hpp"
+#include "Cure.hpp"
 
 Cure::Cure()
 {

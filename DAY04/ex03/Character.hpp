@@ -6,14 +6,14 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 13:06:58 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 16:16:52 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:34:50 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 #define CHARACTER_HPP
 
-#include "head.hpp"
+#include "ICharacter.hpp"
 
 class Character : public ICharacter
 {

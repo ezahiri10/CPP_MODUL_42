@@ -6,11 +6,11 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 11:44:30 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 16:17:12 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 18:34:17 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "head.hpp"
+#include "Ice.hpp"
 
 Ice::Ice()
 {
