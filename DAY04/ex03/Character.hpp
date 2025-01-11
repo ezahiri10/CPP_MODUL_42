@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 13:06:58 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 18:34:50 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 20:46:27 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ class Character : public ICharacter
 {
     protected :
         std::string name;
+        AMateria *trash[4];
         AMateria *slots[4];
         int size;
     public :
