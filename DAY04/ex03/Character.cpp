@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 13:17:38 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 18:41:44 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 19:37:11 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void Character::equip(AMateria *m)
 
 void Character::unequip (int idx)
 {
-    // delete this->slots[idx];
+    delete this->slots[idx];
     this->slots[idx] = NULL;
 }
 
@@ -79,7 +79,8 @@ Character::~Character ()
 {
     for (int i = 0; i < 4; i++)
     {
-        // delete this->slots[i];
+        if (this->slots[i] != NULL)
+            delete this->slots[i];
     }
 }
 

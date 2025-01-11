@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:49:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 18:42:05 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 19:37:35 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,8 @@ MateriaSource::~MateriaSource()
 {
     for (int i = 0; i < 4; i++)
     {
-        // delete this->sourcs[i];
+        if (this->sourcs[i] != NULL)
+            delete this->sourcs[i];
     }
 }
 
