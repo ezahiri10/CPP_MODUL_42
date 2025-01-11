@@ -6,13 +6,17 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/11 15:49:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 19:37:35 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 20:06:18 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "MateriaSource.hpp"
 
-MateriaSource::MateriaSource(){};
+MateriaSource::MateriaSource()
+{
+    for (int i = 0; i < 4; i++)
+        this->sourcs[i] = NULL;
+};
 
 MateriaSource::MateriaSource(const MateriaSource &other)
 {
