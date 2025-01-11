@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:41:41 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 21:55:29 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 22:04:47 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Dog::~Dog (){}
 
 void Dog::makeSound ( void )
 {
-    std::cout << " sound of Dogs " << std::endl;
+    std::cout << "Wouf Wouf" << std::endl;
 }
 
 std::string Dog::get_type ( void ) const

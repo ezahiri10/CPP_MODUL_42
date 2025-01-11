@@ -21,6 +21,8 @@ class WrongAnimal
         std::string type;
     public :
         WrongAnimal();
+        WrongAnimal(WrongAnimal const & WrongAnimal);
+        WrongAnimal & operator=(WrongAnimal const & WrongAnimal);
         ~WrongAnimal();
         WrongAnimal(std::string type);
         virtual void makeSound( void );

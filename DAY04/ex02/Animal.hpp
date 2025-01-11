@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:29:40 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/30 00:04:33 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/11 22:28:51 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ class Animal
         std::string type;
     public :
         Animal();
+        Animal(Animal const &cpy);
+        Animal &operator=(Animal const &affect);
         virtual ~Animal();
         Animal(std::string type);
         virtual void makeSound( void ) = 0;

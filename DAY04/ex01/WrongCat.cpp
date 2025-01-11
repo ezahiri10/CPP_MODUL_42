@@ -26,10 +26,22 @@ WrongCat::~WrongCat (){}
 
 void WrongCat::makeSound ( void )
 {
-    std::cout << " sound of WrongCats " << std::endl;
+    std::cout << "WrongCat Sound" << std::endl;
 }
 
 std::string WrongCat::get_type ( void ) const
 {
     return (this->type);
 }
+
+WrongCat::WrongCat(WrongCat const & WrongCat) : WrongAnimal(WrongCat)
+{
+    *this = WrongCat;
+}
+
+WrongCat & WrongCat::operator=(WrongCat const & WrongCat)
+{
+    this->type = WrongCat.type;
+    return (*this);
+}
+

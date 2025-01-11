@@ -26,10 +26,22 @@ WrongAnimal::~WrongAnimal (){}
 
 void WrongAnimal::makeSound ( void )
 {
-    std::cout << " sound of any WrongAnimal " << std::endl;
+    std::cout << "WrongAnimal Sound" << std::endl;
 }
 
 std::string WrongAnimal::get_type ( void ) const
 {
     return (this->type);
 }
+
+WrongAnimal::WrongAnimal(WrongAnimal const & WrongAnimal)
+{
+    *this = WrongAnimal;
+}
+
+WrongAnimal & WrongAnimal::operator=(WrongAnimal const & WrongAnimal)
+{
+    this->type = WrongAnimal.type;
+    return (*this);
+}
+
