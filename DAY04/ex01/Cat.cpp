@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:44:31 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 22:21:14 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/12 12:18:16 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 Cat::Cat ()
 {
     this->my_brean = new Brain;
-    this->type = "Cat";    
+    this->type = "Cat";
+    std::cout << "Cat constructed!" << std::endl;
 }
 
 Cat::Cat(const std::string &type)
@@ -27,25 +28,15 @@ Cat::Cat(const std::string &type)
 Cat::~Cat ()
 {
     delete this->my_brean;
-    std::cout << "Cat destructed!" << std::endl; // !!
+    std::cout << "Cat destructed!" << std::endl;
 }
 
-Cat &Cat::operator=(Cat &other)
-{
-    if (this != &other)
-    {
-        this->type = other.type;
-        delete my_brean;
-        this->my_brean = new Brain;
-    }
-    return (*this);
-}
-void Cat::makeSound ( void )
+void Cat::makeSound ( void ) const
 {
     std::cout << " Moew ! Moew ! " << std::endl;
 }
 
-std::string Cat::get_type ( void ) const
+std::string Cat::getType ( void ) const
 {
     return (this->type);
 }
@@ -61,7 +52,7 @@ Cat &Cat::operator=(const Cat &other)
     if (this != &other)
     {
         this->type = other.type;
-        delete my_brean;
+        delete this->my_brean;
         this->my_brean = new Brain;
     }
     return (*this);

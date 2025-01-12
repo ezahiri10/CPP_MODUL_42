@@ -14,22 +14,27 @@
 
 WrongCat::WrongCat ()
 {
-    this->type = "WrongCat";    
+    std::cout << "WrongCat Default constructor called" << std::endl;
+    this->type = "WrongCat";
 }
 
 WrongCat::WrongCat(std::string type)
 {
+    std::cout << "WrongCat Default constructor called" << std::endl;
     this->type = type;
 }
 
-WrongCat::~WrongCat (){}
+WrongCat::~WrongCat ()
+{
+    std::cout << "WrongCat Destructor called" << std::endl;
+}
 
-void WrongCat::makeSound ( void )
+void WrongCat::makeSound ( void ) const
 {
     std::cout << "WrongCat Sound" << std::endl;
 }
 
-std::string WrongCat::get_type ( void ) const
+std::string WrongCat::getType ( void ) const
 {
     return (this->type);
 }
@@ -39,7 +44,7 @@ WrongCat::WrongCat(WrongCat const & WrongCat) : WrongAnimal(WrongCat)
     *this = WrongCat;
 }
 
-WrongCat & WrongCat::operator=(WrongCat const & WrongCat)
+WrongCat &WrongCat::operator=(WrongCat const & WrongCat)
 {
     this->type = WrongCat.type;
     return (*this);
