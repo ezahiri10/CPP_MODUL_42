@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef WRONGCAT_HPP
+#define WRONGCAT_HPP
+
 #include "WrongAnimal.hpp"
 
 class WrongCat : public WrongAnimal
@@ -17,8 +20,12 @@ class WrongCat : public WrongAnimal
     public :
         WrongCat();
         ~WrongCat();
+        WrongCat(WrongCat const & src);
+        WrongCat & operator=(WrongCat const & src);
         WrongCat(std::string type);
-        void makeSound ();
+        void makeSound () const;
         std::string getType ( void ) const;
         
 };
+
+#endif

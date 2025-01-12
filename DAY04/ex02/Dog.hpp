@@ -6,9 +6,12 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:39:10 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/12 12:16:45 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/12 13:20:49 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef DOG_HPP
+#define DOG_HPP
 
 #include "Animal.hpp"
 #include "Brain.hpp"
@@ -20,8 +23,10 @@ class Dog : public Animal
     public :
         Dog();
         ~Dog();
-        Dog(std::string type);
-        Dog &operator=(Dog& other);
-        void makeSound ();
-        std::string getType ( void ) const;      
+        Dog(const std::string &type);
+        Dog &operator=(const Dog& other);
+        void makeSound ( ) const;
+        std::string getType ( void ) const;
 };
+
+#endif

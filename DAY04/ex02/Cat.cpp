@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:44:31 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/12 12:16:42 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/12 13:16:31 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 Cat::Cat ()
 {
     this->my_brean = new Brain;
-    this->type = "Cat";    
+    this->type = "Cat";
+    std::cout << "Cat constructed!" << std::endl;
 }
 
-Cat::Cat(std::string type)
+Cat::Cat(const std::string &type)
 {
     this->my_brean = new Brain;
     this->type = type;
+    std::cout << "Cat constructed!" << std::endl;
 }
 
 Cat::~Cat ()
@@ -30,7 +32,7 @@ Cat::~Cat ()
     std::cout << "Cat destructed!" << std::endl;
 }
 
-Cat &Cat::operator=(Cat &other)
+Cat &Cat::operator=(const Cat &other)
 {
     if (this != &other)
     {
@@ -40,7 +42,8 @@ Cat &Cat::operator=(Cat &other)
     }
     return (*this);
 }
-void Cat::makeSound ( void )
+
+void Cat::makeSound ( void ) const
 {
     std::cout << " Moew ! Moew ! " << std::endl;
 }
