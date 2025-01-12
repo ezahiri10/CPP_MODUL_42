@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:39:10 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 21:43:23 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/12 12:16:45 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ class Dog : public Animal
         Dog(std::string type);
         Dog &operator=(Dog& other);
         void makeSound ();
-        std::string get_type ( void ) const;      
+        std::string getType ( void ) const;      
 };

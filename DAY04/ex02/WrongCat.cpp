@@ -29,7 +29,7 @@ void WrongCat::makeSound ( void )
     std::cout << " sound of WrongCats " << std::endl;
 }
 
-std::string WrongCat::get_type ( void ) const
+std::string WrongCat::getType ( void ) const
 {
     return (this->type);
 }

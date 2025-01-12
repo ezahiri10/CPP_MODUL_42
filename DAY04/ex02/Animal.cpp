@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:32:41 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 22:28:27 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/12 12:16:40 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Animal::Animal(std::string type)
 
 Animal::~Animal (){}
 
-std::string Animal::get_type ( void ) const
+std::string Animal::getType ( void ) const
 {
     return (this->type);
 }

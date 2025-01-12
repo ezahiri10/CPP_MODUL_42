@@ -24,7 +24,7 @@ class WrongAnimal
         ~WrongAnimal();
         WrongAnimal(std::string type);
         virtual void makeSound( void );
-        std::string get_type ( void ) const;
+        std::string getType ( void ) const;
 };
 
 #endif

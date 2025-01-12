@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:39:10 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 21:43:07 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/12 12:16:42 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ class Cat : public Animal
         Cat(std::string type);
         Cat &operator=(Cat& other);
         void makeSound ();
-        std::string get_type ( void ) const;      
+        std::string getType ( void ) const;      
 };

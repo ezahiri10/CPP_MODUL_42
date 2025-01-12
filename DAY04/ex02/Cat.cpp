@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:44:31 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 21:47:35 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/12 12:16:42 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void Cat::makeSound ( void )
     std::cout << " Moew ! Moew ! " << std::endl;
 }
 
-std::string Cat::get_type ( void ) const
+std::string Cat::getType ( void ) const
 {
     return (this->type);
 }
