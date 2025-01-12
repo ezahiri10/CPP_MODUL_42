@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:46:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2024/12/29 19:16:56 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/12 10:57:50 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,30 +15,19 @@
 #include "WrongAnimal.hpp"
 #include "WrongCat.hpp"
 
-int main() {
-    Animal* meta = new Animal();
-    Animal* dog = new Dog();
-    Animal* cat = new Cat();
-
-    std::cout << dog->get_type() << " " << std::endl;
-    std::cout << cat->get_type() << " " << std::endl;
-
-    cat->makeSound();  
-    dog->makeSound();  
-    meta->makeSound(); 
-    WrongAnimal* wrongMeta = new WrongAnimal();
-    WrongAnimal* wrongCat = new WrongCat();
-
-    wrongCat->makeSound();
-    wrongMeta->makeSound();
-
+int main()
+{
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+    std::cout << j->getType() << " " << std::endl;
+    std::cout << i->getType() << " " << std::endl;
+    i->makeSound(); //will output the cat sound!
+    j->makeSound();
+    meta->makeSound();
     delete meta;
-    delete dog;
-    delete cat;
-
-    delete wrongMeta;
-    delete wrongCat;
-
+    delete j;
+    delete i;
     return 0;
 }
 

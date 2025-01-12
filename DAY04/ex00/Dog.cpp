@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/29 17:41:41 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/11 22:04:47 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/12 10:53:45 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 Dog::Dog ()
 {
-    this->type = "Dog";    
+    this->type = "Dog";
+    std::cout << "Dog constructor called" << std::endl;
 }
 
 Dog::Dog(std::string type)
 {
     this->type = type;
+    std::cout << "Dog constructor called" << std::endl;
 }
 
-Dog::~Dog (){}
+Dog::~Dog ()
+{
+    std::cout << "Dog destructor called" << std::endl;
+}
 
-void Dog::makeSound ( void )
+void Dog::makeSound ( void ) const
 {
     std::cout << "Wouf Wouf" << std::endl;
 }
 
-std::string Dog::get_type ( void ) const
+std::string Dog::getType ( void ) const
 {
     return (this->type);
 }
@@ -37,11 +42,12 @@ std::string Dog::get_type ( void ) const
 Dog::Dog(const Dog &cpy) : Animal(cpy)
 {
     *this = cpy;
+    std::cout << "Dog copy constructor called" << std::endl;
 }
 
 Dog &Dog::operator=(const Dog &cpy)
 {
-    this->type = cpy.get_type();
+    this->type = cpy.getType();
     return (*this);
 }
 

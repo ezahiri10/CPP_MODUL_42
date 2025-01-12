@@ -14,17 +14,22 @@
 
 WrongCat::WrongCat ()
 {
+    std::cout << "WrongCat Constructor called" << std::endl;
     this->type = "WrongCat";    
 }
 
 WrongCat::WrongCat(std::string type)
 {
+    std::cout << "WrongCat Constructor called" << std::endl;
     this->type = type;
 }
 
-WrongCat::~WrongCat (){}
+WrongCat::~WrongCat ()
+{
+    std::cout << "WrongCat Destructor called" << std::endl;
+}
 
-void WrongCat::makeSound ( void )
+void WrongCat::makeSound ( void ) const
 {
     std::cout << " sound of WrongCats " << std::endl;
 }
@@ -36,6 +41,7 @@ std::string WrongCat::get_type ( void ) const
 
 WrongCat::WrongCat(WrongCat const & other) : WrongAnimal(other)
 {
+    std::cout << "WrongCat Copy Constructor called" << std::endl;
     *this = other;
 }
 
