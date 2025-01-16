@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:22:36 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/16 20:09:54 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/16 20:38:04 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ Bureaucrat::Bureaucrat(int grade, const std::string &name)
     }
     try {
         if (grade > 150)
+        {
             throw GradeTooLowException();
+        }
     }
     catch (const std::exception& low)
     {
@@ -93,6 +95,6 @@ void Bureaucrat::GradeDecrement()
 
 std::ostream &operator<< (std::ostream &os, Bureaucrat &b)
 {
-    os << b.getName () << ", bureaucrat grade " << b.getGrade () << std::endl;
+    os << b.getName () << ", bureaucrat grade " << b.getGrade ();
     return (os);
 }

@@ -1,19 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   GradeTooHighException.hpp                          :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/16 19:38:03 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/16 20:35:43 by ezahiri          ###   ########.fr       */
+/*   Created: 2025/01/16 20:11:53 by ezahiri           #+#    #+#             */
+/*   Updated: 2025/01/16 20:40:17 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Bureaucrat.hpp"
 
-class GradeTooHighException : public std::exception
+int main ()
 {
-    public :
-        const char *what () const _NOEXCEPT;
-};
+    Bureaucrat b(-615, "said");
+
+    std::cout << b << std::endl;
+}
