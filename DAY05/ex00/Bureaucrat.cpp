@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:22:36 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/16 20:01:31 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/16 20:09:54 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ Bureaucrat& Bureaucrat::operator=(const Bureaucrat &other)
 }
 
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
     return (this->name);
 }
 
-int Bureaucrat::getGrade ()
+int Bureaucrat::getGrade () const
 {
     return (this->grade);
 }
@@ -91,3 +91,8 @@ void Bureaucrat::GradeDecrement()
     this->grade++;
 }
 
+std::ostream &operator<< (std::ostream &os, Bureaucrat &b)
+{
+    os << b.getName () << ", bureaucrat grade " << b.getGrade () << std::endl;
+    return (os);
+}
