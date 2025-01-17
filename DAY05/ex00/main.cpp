@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 20:11:53 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/16 20:40:17 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/17 18:18:46 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,14 @@
 
 int main ()
 {
-    Bureaucrat b(-615, "said");
-
-    std::cout << b << std::endl;
+    try {
+        Bureaucrat b(0, "said");
+        b.GradeIncrement();
+        std::cout << b << std::endl;
+    }
+    catch (const std::exception &p)
+    {
+        std::cout << p.what () << std::endl;
+        return (0);
+    }
 }

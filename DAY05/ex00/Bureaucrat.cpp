@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:22:36 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/16 20:38:04 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/17 18:12:34 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,10 @@
 
 Bureaucrat::Bureaucrat(int grade, const std::string &name)
 {
-    try {
-        if (grade < 1)
-            throw GradeTooHighException();
-    }
-    catch (const std::exception& high)
-    {
-        std::cout << high.what() << std::endl;
-        return ;
-    }
-    try {
-        if (grade > 150)
-        {
+    if (grade < 1)
+        throw GradeTooHighException();
+    if (grade > 150)
             throw GradeTooLowException();
-        }
-    }
-    catch (const std::exception& low)
-    {
-        std::cout << low.what() << std::endl;
-        return ;
-    }
     this->name = name;
     this->grade = grade;
 }
@@ -67,29 +51,15 @@ int Bureaucrat::getGrade () const
 
 void Bureaucrat::GradeIncrement()
 {
-    try {
-        if (this->grade - 1 < 1)
+    if (this->grade - 1 < 1)
             throw GradeTooHighException();
-    }
-    catch (const std::exception& high)
-    {
-        std::cout << high.what() << std::endl;
-        return;
-    }
     this->grade--;
 }
 
 void Bureaucrat::GradeDecrement()
 {
-    try {
-        if (this->grade + 1 > 150)
-            throw GradeTooLowException();
-    }
-    catch (const std::exception& low)
-    {
-        std::cout << low.what() << std::endl;
-        return ;
-    }
+    if (this->grade + 1 > 150)
+        throw GradeTooLowException();
     this->grade++;
 }
 
@@ -97,4 +67,14 @@ std::ostream &operator<< (std::ostream &os, Bureaucrat &b)
 {
     os << b.getName () << ", bureaucrat grade " << b.getGrade ();
     return (os);
+}
+
+const char *Bureaucrat::GradeTooHighException::what () const throw()
+{
+    return ("1 is highest possible grade ");
+}
+
+const char *Bureaucrat::GradeTooLowException::what () const throw()
+{
+    return "150 is lowest possible grade";
 }
