@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 15:40:24 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/18 16:25:11 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,12 +46,12 @@ int Form::getGradeTosign () const
 
 const char *Form::GradeTooHighException::what () const throw()
 {
-    return ("1 is highest possible grade ");
+    return ("Form grade is too high!");
 }
 
 const char *Form::GradeTooLowException::what () const throw()
 {
-    return ("150 is lowest possible grade");
+    return ("Form grade is too low!");
 }
 
 Form::Form (const std::string &name, int gradeToSign, int gradeToExecute) : nameForm(name), isSigned(false), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
@@ -71,9 +71,12 @@ void Form::beSigned (Bureaucrat &b)
 }
 
 
-std::ostream &operator<< (std::ostream &os, const Form &f)
+std::ostream &operator<< (std::ostream &os, const Form &form)
 {
-    os << "Form Name " << f.getName() ;
+    os << "Form " << form.getName() << " (signed: ";
+    os << (form.getIsSigned() ? "yes" : "no") ;
+    os << ", grade required to sign: " << form.getGradeTosign() ;
+    os  << ", grade required to execute: " << form.getGradeToExecute() << ")";
     return (os);
 }
 

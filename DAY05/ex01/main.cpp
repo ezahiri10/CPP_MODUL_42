@@ -6,24 +6,33 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 20:11:53 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 15:46:31 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/18 16:25:32 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-int main ()
-{
+int main() {
     try {
-       Bureaucrat b(9, "Pro"); 
-       Form f1("form1", 10, 3);
-       f1.beSigned(b);
-       b.signForm(f1);
-    //    std::cout << "finish" << std::endl;
+        Bureaucrat john(5 , "junior");
+        Form taxForm("Tax Form", 3, 3);
+
+        std::cout << john << std::endl;
+        std::cout << taxForm << std::endl;
+
+        std::cout << "====================================================" << std::endl;
+        taxForm.beSigned(john);
+        john.signForm(taxForm);
+        std::cout << taxForm << std::endl;
+
+        std::cout << "====================================================" << std::endl;
+        Bureaucrat alice( 1, "senior");
+        taxForm.beSigned(alice);
+        alice.signForm(taxForm);
+
+    } catch (std::exception& e) {
+        std::cerr << e.what() << std::endl;
     }
-    catch (const std::exception &p)
-    {
-        std::cout << p.what () << std::endl;
-        return (0);
-    }
+
+    return 0;
 }

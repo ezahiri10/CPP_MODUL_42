@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:04:54 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 15:29:43 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/18 16:11:11 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ class Bureaucrat
 };
 
 std::ostream &operator<< (std::ostream &os, Bureaucrat &b);
-std::ostream &operator<< (std::ostream &os, const Form &f);
+std::ostream &operator<< (std::ostream &os, const Form &form);
 
 #endif
 

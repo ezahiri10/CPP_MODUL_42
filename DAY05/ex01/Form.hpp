@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:35:25 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 15:36:48 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/18 16:11:03 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class Form
         Form();
         Form(const Form &other);
         Form &operator= (const Form &other);
-        ~Form();     
+        ~Form();
         Form (const std::string &name ,int gradeToSign, int gradeToExecute);
         std::string getName () const;
         bool getIsSigned() const;
