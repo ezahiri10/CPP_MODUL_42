@@ -1,10 +1,20 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Make_file.sh                                       :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/01/18 13:07:33 by ezahiri           #+#    #+#              #
+#    Updated: 2025/01/18 13:30:16 by ezahiri          ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #!/bin/bash
 
-# Collect all .cpp and .hpp files in the current directory
 SRC_FILES=$(ls *.cpp 2>/dev/null | tr '\n' ' ')
 HEADER_FILES=$(ls *.hpp 2>/dev/null | tr '\n' ' ')
 
-# Create the Makefile
 cat << EOF > Makefile
 CC = c++
 

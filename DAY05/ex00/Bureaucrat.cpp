@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:22:36 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/17 18:12:34 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/18 16:24:03 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,10 +71,10 @@ std::ostream &operator<< (std::ostream &os, Bureaucrat &b)
 
 const char *Bureaucrat::GradeTooHighException::what () const throw()
 {
-    return ("1 is highest possible grade ");
+    return ("Bureaucrat grade is too high!");
 }
 
 const char *Bureaucrat::GradeTooLowException::what () const throw()
 {
-    return "150 is lowest possible grade";
+    return "Bureaucrat grade is too low!";
 }
