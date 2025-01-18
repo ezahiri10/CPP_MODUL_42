@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 20:11:53 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 16:25:32 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/18 16:39:40 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,11 @@ int main() {
         std::cout << taxForm << std::endl;
 
         std::cout << "====================================================" << std::endl;
-        taxForm.beSigned(john);
         john.signForm(taxForm);
         std::cout << taxForm << std::endl;
 
         std::cout << "====================================================" << std::endl;
         Bureaucrat alice( 1, "senior");
-        taxForm.beSigned(alice);
         alice.signForm(taxForm);
 
     } catch (std::exception& e) {

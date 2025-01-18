@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:22:36 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 16:24:03 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/18 16:39:07 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,12 +79,14 @@ const char *Bureaucrat::GradeTooLowException::what () const throw()
     return ("Bureaucrat grade is too low!");
 }
 
-void Bureaucrat::signForm(Form &f)
+void Bureaucrat::signForm(Form &form)
 {
-    std::cout << f.getGradeTosign () << std::endl;
-    if (f.getIsSigned() == false)
-        std::cout << *this << " couldn’t sign " << f << " form not signed" << std::endl;
-    else
-        std::cout << *this << " signed " << f << std::endl;
-    
+    try {
+        form.beSigned(*this);
+        std::cout << *this << " signed " << form << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << *this << " couldn’t sign " << form << " because " << e.what() << std::endl;
+    }
 }
