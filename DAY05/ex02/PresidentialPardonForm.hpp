@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:03 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 13:08:49 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 14:19:17 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,38 +22,13 @@ class Bureaucrat;
 class PresidentialPardonForm : public AForm
 {
     private :
-        std::string nameForm;
-        bool isSigned;
-        const int gradeToSign;
-        const int gradeToExecute;
         std::string target;
     public :
         PresidentialPardonForm();
         PresidentialPardonForm(const PresidentialPardonForm &other);
         PresidentialPardonForm &operator= (const PresidentialPardonForm &other);
         ~PresidentialPardonForm();
-        PresidentialPardonForm (const std::string &name,const std::string& target);
-        std::string getName () const;
-        bool getIsSigned() const;
-        int getGradeTosign() const;
-        int getGradeToExecute() const;
-        std::string getTarget () const;
-        class GradeTooHighException : public std::exception
-        {
-            public :
-                const char *what () const throw() ;
-        };
-        class GradeTooLowException : public std::exception
-        {
-            public :
-                const char *what () const throw() ;
-        };
-        class FormNotSignedException : public std::exception 
-        {
-            public:
-                const char *what() const throw();
-        };
-        void beSigned(Bureaucrat &b);
+        PresidentialPardonForm (const std::string& target);
         void execute(Bureaucrat const & executor) const;
 };
 

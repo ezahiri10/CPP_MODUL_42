@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 13:07:39 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 14:14:56 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,15 @@
 
 AForm::AForm() : gradeToSign (0) , gradeToExecute(0)
 {}
+AForm::AForm (const std::string &name, int gradeToSign, int gradeToExecute) :  gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+{
+    if (gradeToSign < 1 || gradeToExecute < 1)
+        throw AForm::GradeTooHighException();
+    if (gradeToSign > 150 || gradeToExecute > 150)
+        throw AForm::GradeTooLowException();
+    this->nameForm = name;
+    this->isSigned = false;
+}
 
 AForm::AForm(const AForm &other) 
     :  nameForm(other.nameForm) , 
@@ -21,6 +30,7 @@ AForm::AForm(const AForm &other)
         gradeToSign(other.gradeToSign) , 
         gradeToExecute(other.gradeToExecute)
 {}
+
 
 AForm &AForm::operator= (const AForm &other)
 {
@@ -50,25 +60,18 @@ int AForm::getGradeTosign () const
 
 const char *AForm::GradeTooHighException::what () const throw()
 {
-    return ("AForm grade is too high!");
+    return ("Grade is too high!");
 }
 
 const char *AForm::GradeTooLowException::what () const throw()
 {
-    return ("AForm grade is too low!");
+    return ("Grade is too low!");
 }
 
 const char *AForm::FormNotSignedException::what () const throw()
 {
-    return ("AForm is not signed!");
+    return ("Form is not signed!");
 }
-
-AForm::AForm (const std::string &name, int gradeToSign, int gradeToExecute) :  gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
-{
-    this->nameForm = name;
-    this->isSigned = false;
-}
-
 
 void AForm::beSigned (Bureaucrat &b)
 {
@@ -77,7 +80,6 @@ void AForm::beSigned (Bureaucrat &b)
     else
         isSigned = true;
 }
-
 
 std::ostream &operator<< (std::ostream &os, const AForm &form)
 {

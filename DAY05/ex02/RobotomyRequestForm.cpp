@@ -6,52 +6,26 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 13:12:12 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 14:33:15 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : gradeToSign (0) , gradeToExecute(0)
+RobotomyRequestForm::RobotomyRequestForm() : AForm("RobotomyRequestForm", 72, 45)
 {
-    this->nameForm = "RobotomyRequestForm";
     this->target = "default";
-    this->isSigned = false;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) 
-        : AForm(other),
-        target(other.target),
-        nameForm(other.nameForm) , 
-        isSigned(other.isSigned) , 
-        gradeToSign(other.gradeToSign) , 
-        gradeToExecute(other.gradeToExecute)
-{}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AForm("RobotomyRequestForm", 72, 45)
+{
+    *this = other;
+}
+
 RobotomyRequestForm &RobotomyRequestForm::operator= (const RobotomyRequestForm &other)
 {
-    this->nameForm = other.nameForm;
     this->target = other.target;
     return (*this);
-}
-
-std::string RobotomyRequestForm::getName() const
-{
-    return (this->nameForm);
-}
-
-bool RobotomyRequestForm::getIsSigned() const
-{
-    return (this->isSigned);
-}
-
-int RobotomyRequestForm::getGradeToExecute() const
-{
-    return (this->gradeToExecute);
-}
-
-int RobotomyRequestForm::getGradeTosign () const
-{
-    return (this->gradeToSign);   
 }
 
 std::string RobotomyRequestForm::getTarget () const
@@ -59,40 +33,15 @@ std::string RobotomyRequestForm::getTarget () const
     return (this->target);   
 }
 
-const char *RobotomyRequestForm::GradeTooHighException::what () const throw()
+RobotomyRequestForm::RobotomyRequestForm (const std::string& target) : AForm("RobotomyRequestForm", 72, 45)
 {
-    return ("RobotomyRequestForm grade is too high!");
-}
-
-const char *RobotomyRequestForm::GradeTooLowException::what () const throw()
-{
-    return ("RobotomyRequestForm grade is too low!");
-}
-
-const char *RobotomyRequestForm::FormNotSignedException::what () const throw()
-{
-    return ("RobotomyRequestForm is not signed!");
-}
-
-RobotomyRequestForm::RobotomyRequestForm (const std::string &name,const std::string& target) :  gradeToSign(72), gradeToExecute(45)
-{
-    this->nameForm = name;
     this->target = target;
-    this->isSigned = false;
-}
-
-void RobotomyRequestForm::beSigned (Bureaucrat &b)
-{
-    if (b.getGrade() > this->gradeToSign)
-        throw RobotomyRequestForm::GradeTooLowException();
-    else
-        isSigned = true;
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-    if (executor.getGrade() > this->gradeToExecute)
-        throw RobotomyRequestForm::FormNotSignedException();
+    if (executor.getGrade() > this->getGradeToExecute())
+        throw AForm::FormNotSignedException();
     time_t r = time(NULL) % 100;
     if (r % 2 == 0)
         std::cout << this->target << " has been robotomized successfully." << std::endl;
