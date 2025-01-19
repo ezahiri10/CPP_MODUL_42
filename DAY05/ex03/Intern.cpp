@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:37:43 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 19:23:10 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 21:11:44 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,6 @@ Intern &Intern::operator=(const Intern &other)
 }
 
 
-const char *Intern::UnkownFormException::what() const throw()
-{
-    return ("Unkown form"); 
-}
-
 int get_index(const std::string &name)
 {
     std::string names[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
@@ -46,6 +41,7 @@ int get_index(const std::string &name)
             return (i);
         }
     }
+    std::cerr << "Error: Form name \"" << name << "\" is invalid." << std::endl;
     return(-1);
 }
 
@@ -67,7 +63,7 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
 {
     int idx = get_index(name);
     if (-1 == idx)
-        throw Intern::UnkownFormException();
+        return (NULL);
     AForm *(*ptr_f[3])(const std::string &name) = {create_shrubbery , create_robotomy ,create_presidential};
     return (ptr_f[idx](target));
 }

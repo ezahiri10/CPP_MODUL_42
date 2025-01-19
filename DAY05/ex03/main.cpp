@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 20:11:53 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 17:46:45 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 21:12:45 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int main() {
         Intern i;
         
         AForm* f =  i.makeForm("robotomy request", "XXXX");
+        if (f == NULL)
+            return 1;
         b.signForm(*f);
         b.executeForm(*f);
         delete f;

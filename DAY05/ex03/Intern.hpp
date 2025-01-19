@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:38:09 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 19:21:15 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 21:10:38 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ class Intern
         Intern(const Intern &other);
         Intern &operator= (const Intern &other);
         ~Intern();
-        class UnkownFormException : public std::exception
-            {
-            public :
-                const char *what () const throw() ;
-        };
 };
 
 #endif
