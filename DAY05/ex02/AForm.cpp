@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 11:38:27 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 11:52:18 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,7 @@ std::ostream &operator<< (std::ostream &os, const AForm &form)
     os << "Form " << form.getName() << " (signed: ";
     os << (form.getIsSigned() ? "yes" : "no") ;
     os << ", grade required to sign: " << form.getGradeTosign() ;
-    os  << ", grade required to execute: " << form.getGradeToExecute() << ")";
+    os  << ", grade required to execute: " << form.getGradeToExecute() << ")" << std::endl;
     return (os);
 }
 

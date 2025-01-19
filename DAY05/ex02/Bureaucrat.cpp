@@ -6,13 +6,13 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:22:36 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 11:41:09 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 11:49:56 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(int grade, const std::string &name)
+Bureaucrat::Bureaucrat(const std::string &name, int grade)
 {
     if (grade < 1)
         throw GradeTooHighException();
@@ -102,6 +102,5 @@ void Bureaucrat::executeForm(AForm const &form)
     catch (const std::exception &e)
     {
         std::cout << "problem :" << e.what () << std::endl;
-
     }
 }
