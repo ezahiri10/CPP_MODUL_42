@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:40:33 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 10:12:09 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:22:24 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class ShrubberyCreationForm : public AForm
         ShrubberyCreationForm(const ShrubberyCreationForm &other);
         ShrubberyCreationForm &operator= (const ShrubberyCreationForm &other);
         ~ShrubberyCreationForm();
-        ShrubberyCreationForm (const std::string &name, std::string& target);
+        ShrubberyCreationForm (const std::string &name,const std::string& target);
         std::string getName () const;
         bool getIsSigned() const;
         int getGradeTosign() const;

@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 10:13:04 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 11:40:26 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ const char *ShrubberyCreationForm::GradeTooLowException::what () const throw()
     return ("ShrubberyCreationForm grade is too low!");
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm (const std::string &name, std::string& target) :  gradeToSign(145), gradeToExecute(137)
+ShrubberyCreationForm::ShrubberyCreationForm (const std::string &name,const std::string& target) :  gradeToSign(145), gradeToExecute(137)
 {
     this->nameForm = name;
     this->target = target;
@@ -82,7 +82,7 @@ void ShrubberyCreationForm::beSigned (Bureaucrat &b)
     if (b.getGrade() > this->gradeToSign)
         throw ShrubberyCreationForm::GradeTooLowException();
     else
-        isSigned = true;
+        this->isSigned = true;
 }
 
 

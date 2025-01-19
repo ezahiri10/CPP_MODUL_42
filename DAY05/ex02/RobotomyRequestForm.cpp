@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 10:11:48 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:21:10 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other)
         gradeToSign(other.gradeToSign) , 
         gradeToExecute(other.gradeToExecute)
 {}
-/* nameForm(other.nameForm) , 
-        isSigned(other.isSigned) , 
-        gradeToSign(other.gradeToSign) , 
-        gradeToExecute(other.gradeToExecute)*/
-
 RobotomyRequestForm &RobotomyRequestForm::operator= (const RobotomyRequestForm &other)
 {
     this->nameForm = other.nameForm;
@@ -73,7 +68,7 @@ const char *RobotomyRequestForm::GradeTooLowException::what () const throw()
     return ("RobotomyRequestForm grade is too low!");
 }
 
-RobotomyRequestForm::RobotomyRequestForm (const std::string &name, std::string& target) :  gradeToSign(72), gradeToExecute(45)
+RobotomyRequestForm::RobotomyRequestForm (const std::string &name,const std::string& target) :  gradeToSign(72), gradeToExecute(45)
 {
     this->nameForm = name;
     this->target = target;

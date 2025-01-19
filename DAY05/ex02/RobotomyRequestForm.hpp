@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:34:58 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 10:06:22 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:20:10 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class RobotomyRequestForm : public AForm
         RobotomyRequestForm(const RobotomyRequestForm &other);
         RobotomyRequestForm &operator= (const RobotomyRequestForm &other);
         ~RobotomyRequestForm();
-        RobotomyRequestForm (const std::string &name, std::string& target);
+        RobotomyRequestForm (const std::string &name,const std::string& target);
         std::string getName () const;
         bool getIsSigned() const;
         int getGradeTosign() const;

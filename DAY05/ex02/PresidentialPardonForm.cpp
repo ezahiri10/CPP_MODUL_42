@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 23:53:29 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:22:18 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ const char *PresidentialPardonForm::GradeTooLowException::what () const throw()
     return ("PresidentialPardonForm grade is too low!");
 }
 
-PresidentialPardonForm::PresidentialPardonForm (const std::string &name , std::string& target) :  gradeToSign(25), gradeToExecute(5)
+PresidentialPardonForm::PresidentialPardonForm (const std::string &name ,const std::string& target) :  gradeToSign(25), gradeToExecute(5)
 {
     this->nameForm = name;
     this->target= target;

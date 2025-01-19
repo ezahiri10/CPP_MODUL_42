@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 00:23:45 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 11:38:27 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ AForm &AForm::operator= (const AForm &other)
 
 std::string AForm::getName() const
 {
+    std::cout << "getName" << std::endl;
     return (this->nameForm);
 }
 
@@ -66,7 +67,7 @@ const char *AForm::GradeTooLowException::what () const throw()
     return ("AForm grade is too low!");
 }
 
-AForm::AForm (const std::string &name, int gradeToSign, int gradeToExecute, std::string& target) :  gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
+AForm::AForm (const std::string &name, int gradeToSign, int gradeToExecute,const std::string& target) :  gradeToSign(gradeToSign), gradeToExecute(gradeToExecute)
 {
     this->nameForm = name;
     this->target = target;

@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:03 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 10:05:21 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:22:19 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class PresidentialPardonForm : public AForm
         PresidentialPardonForm(const PresidentialPardonForm &other);
         PresidentialPardonForm &operator= (const PresidentialPardonForm &other);
         ~PresidentialPardonForm();
-        PresidentialPardonForm (const std::string &name, std::string& target);
+        PresidentialPardonForm (const std::string &name,const std::string& target);
         std::string getName () const;
         bool getIsSigned() const;
         int getGradeTosign() const;
