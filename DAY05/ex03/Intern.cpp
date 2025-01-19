@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:37:43 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 18:22:09 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 19:23:10 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,10 @@ int get_index(const std::string &name)
     for (int i = 0; i < 3; i++)
     {
         if (names[i] == name)
+        {
+            std::cout << "Intern creates " << name << std::endl;
             return (i);
+        }
     }
     return(-1);
 }
@@ -66,6 +69,5 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
     if (-1 == idx)
         throw Intern::UnkownFormException();
     AForm *(*ptr_f[3])(const std::string &name) = {create_shrubbery , create_robotomy ,create_presidential};
-
     return (ptr_f[idx](target));
 }
