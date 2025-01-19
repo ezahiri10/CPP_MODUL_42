@@ -6,12 +6,12 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:40:33 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 23:28:23 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:12:09 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ShrubberyCreationForm_HPP
-#define ShrubberyCreationForm_HPP
+#ifndef SHRUBBERYCREATIONFORM_HPP
+#define SHRUBBERYCREATIONFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"

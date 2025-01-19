@@ -6,13 +6,13 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:03 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 00:19:10 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:05:21 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#ifndef PresidentialPardonForm
-#define PresidentialPardonForm
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"

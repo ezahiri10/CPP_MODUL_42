@@ -6,12 +6,12 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:34:58 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 23:45:52 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:06:22 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RobotomyRequestForm_HPP
-#define RobotomyRequestForm_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include <iostream>
 #include "Bureaucrat.hpp"

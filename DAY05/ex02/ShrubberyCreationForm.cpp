@@ -6,21 +6,26 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 23:54:00 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:13:04 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm() : nameForm("default") , isSigned(false) , gradeToSign(0) , gradeToExecute(0), target("default")
-{}
+ShrubberyCreationForm::ShrubberyCreationForm() : gradeToSign (0) , gradeToExecute(0)
+{
+    this->nameForm = "ShrubberyCreationForm";
+    this->target = "default";
+    this->isSigned = false;
+}
+
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) 
-    :  nameForm(other.nameForm) , 
+    :   target(other.target),
+        nameForm(other.nameForm) , 
         isSigned(other.isSigned) , 
         gradeToSign(other.gradeToSign) , 
-        gradeToExecute(other.gradeToExecute), 
-        target(other.target)
+        gradeToExecute(other.gradeToExecute)
 {}
 
 ShrubberyCreationForm &ShrubberyCreationForm::operator= (const ShrubberyCreationForm &other)

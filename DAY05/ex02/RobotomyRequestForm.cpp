@@ -6,22 +6,30 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 23:53:48 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 10:11:48 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm() : nameForm("default") , isSigned(false) , gradeToSign(0) , gradeToExecute(0), target("default")
-{}
+RobotomyRequestForm::RobotomyRequestForm() : gradeToSign (0) , gradeToExecute(0)
+{
+    this->nameForm = "RobotomyRequestForm";
+    this->target = "default";
+    this->isSigned = false;
+}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) 
-    :  nameForm(other.nameForm) , 
+    :    target(other.target),
+        nameForm(other.nameForm) , 
         isSigned(other.isSigned) , 
         gradeToSign(other.gradeToSign) , 
-        gradeToExecute(other.gradeToExecute), 
-        target(other.target)
+        gradeToExecute(other.gradeToExecute)
 {}
+/* nameForm(other.nameForm) , 
+        isSigned(other.isSigned) , 
+        gradeToSign(other.gradeToSign) , 
+        gradeToExecute(other.gradeToExecute)*/
 
 RobotomyRequestForm &RobotomyRequestForm::operator= (const RobotomyRequestForm &other)
 {
