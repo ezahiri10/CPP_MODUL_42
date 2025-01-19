@@ -6,10 +6,12 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:38:09 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 17:23:53 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 19:21:15 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef INTERN_HPP
+#define INTERN_HPP
 
 #include "ShrubberyCreationForm.hpp"
 #include "PresidentialPardonForm.hpp"
@@ -30,3 +32,5 @@ class Intern
                 const char *what () const throw() ;
         };
 };
+
+#endif
