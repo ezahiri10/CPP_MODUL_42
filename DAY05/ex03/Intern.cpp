@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/19 16:37:43 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 17:47:17 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 18:22:09 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ AForm *Intern::makeForm(const std::string &name, const std::string &target)
     int idx = get_index(name);
     if (-1 == idx)
         throw Intern::UnkownFormException();
-    AForm *(*ptr_f[3])(const std::string &name) = {create_presidential, create_robotomy ,create_shrubbery};
+    AForm *(*ptr_f[3])(const std::string &name) = {create_shrubbery , create_robotomy ,create_presidential};
 
     return (ptr_f[idx](target));
 }
