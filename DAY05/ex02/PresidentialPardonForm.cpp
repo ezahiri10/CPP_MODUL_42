@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 10:22:18 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 12:54:22 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@ PresidentialPardonForm::PresidentialPardonForm() : nameForm("default") , isSigne
 {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &other) 
-    :  nameForm(other.nameForm) , 
+    : AForm(other),
+      nameForm(other.nameForm) , 
         isSigned(other.isSigned) , 
         gradeToSign(other.gradeToSign) , 
         gradeToExecute(other.gradeToExecute), 

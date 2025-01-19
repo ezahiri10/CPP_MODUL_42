@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 11:40:26 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 12:55:17 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,8 @@ ShrubberyCreationForm::ShrubberyCreationForm() : gradeToSign (0) , gradeToExecut
 
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &other) 
-    :   target(other.target),
+       : AForm(other),
+        target(other.target),
         nameForm(other.nameForm) , 
         isSigned(other.isSigned) , 
         gradeToSign(other.gradeToSign) , 

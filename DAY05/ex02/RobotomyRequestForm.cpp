@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 12:04:22 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 12:54:59 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ RobotomyRequestForm::RobotomyRequestForm() : gradeToSign (0) , gradeToExecute(0)
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) 
-    :    target(other.target),
+        : AForm(other),
+        target(other.target),
         nameForm(other.nameForm) , 
         isSigned(other.isSigned) , 
         gradeToSign(other.gradeToSign) , 
