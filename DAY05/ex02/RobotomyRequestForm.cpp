@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 12:54:59 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 13:12:12 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,11 @@ const char *RobotomyRequestForm::GradeTooLowException::what () const throw()
     return ("RobotomyRequestForm grade is too low!");
 }
 
+const char *RobotomyRequestForm::FormNotSignedException::what () const throw()
+{
+    return ("RobotomyRequestForm is not signed!");
+}
+
 RobotomyRequestForm::RobotomyRequestForm (const std::string &name,const std::string& target) :  gradeToSign(72), gradeToExecute(45)
 {
     this->nameForm = name;
@@ -87,7 +92,7 @@ void RobotomyRequestForm::beSigned (Bureaucrat &b)
 void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if (executor.getGrade() > this->gradeToExecute)
-        throw RobotomyRequestForm::GradeTooLowException();
+        throw RobotomyRequestForm::FormNotSignedException();
     time_t r = time(NULL) % 100;
     if (r % 2 == 0)
         std::cout << this->target << " has been robotomized successfully." << std::endl;

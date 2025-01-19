@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:42:03 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 10:22:19 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 13:08:49 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,11 @@ class PresidentialPardonForm : public AForm
         {
             public :
                 const char *what () const throw() ;
+        };
+        class FormNotSignedException : public std::exception 
+        {
+            public:
+                const char *what() const throw();
         };
         void beSigned(Bureaucrat &b);
         void execute(Bureaucrat const & executor) const;

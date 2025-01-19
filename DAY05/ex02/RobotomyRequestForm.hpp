@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 22:34:58 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 10:20:10 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 13:09:27 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,11 @@ class RobotomyRequestForm : public AForm
         {
             public :
                 const char *what () const throw() ;
+        };
+        class FormNotSignedException : public std::exception 
+        {
+            public:
+                const char *what() const throw();
         };
         void beSigned(Bureaucrat &b);
         void execute(Bureaucrat const & executor) const;

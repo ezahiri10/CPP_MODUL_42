@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 12:54:22 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 13:11:45 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,11 @@ const char *PresidentialPardonForm::GradeTooLowException::what () const throw()
     return ("PresidentialPardonForm grade is too low!");
 }
 
+const char *PresidentialPardonForm::FormNotSignedException::what () const throw()
+{
+    return ("PresidentialPardonForm is not signed!");
+}
+
 PresidentialPardonForm::PresidentialPardonForm (const std::string &name ,const std::string& target) :  gradeToSign(25), gradeToExecute(5)
 {
     this->nameForm = name;
@@ -84,7 +89,7 @@ void PresidentialPardonForm::beSigned (Bureaucrat &b)
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const
 {
     if (executor.getGrade() > this->gradeToExecute)
-        throw PresidentialPardonForm::GradeTooLowException();
+        throw PresidentialPardonForm::FormNotSignedException();
     std::cout << this->target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }
 
