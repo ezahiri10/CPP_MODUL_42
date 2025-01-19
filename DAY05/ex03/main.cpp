@@ -6,27 +6,45 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 20:11:53 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 21:12:45 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 21:33:28 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Intern.hpp"
 
 int main() {
-    try 
-    {
-        Bureaucrat b("b", 1);
-        Intern i;
-        
-        AForm* f =  i.makeForm("robotomy request", "XXXX");
-        if (f == NULL)
-            return 1;
-        b.signForm(*f);
-        b.executeForm(*f);
-        delete f;
-    }
-    catch (std::exception & e)
-    {
+    try {
+        Intern someRandomIntern;
+        Bureaucrat boss("Boss", 1);
+
+
+        AForm* shrubbery = someRandomIntern.makeForm("shrubbery creation", "Home");
+        AForm* robotomy = someRandomIntern.makeForm("robotomy request", "Bender");
+        AForm* pardon = someRandomIntern.makeForm("presidential pardon", "Marvin");
+
+        AForm* invalidForm = someRandomIntern.makeForm("unknown form", "Target");
+        if (shrubbery) {
+            boss.signForm(*shrubbery);
+            boss.executeForm(*shrubbery);
+            delete shrubbery;
+        }
+
+        if (robotomy) {
+            boss.signForm(*robotomy);
+            boss.executeForm(*robotomy);
+            delete robotomy;
+        }
+
+        if (pardon) {
+            boss.signForm(*pardon);
+            boss.executeForm(*pardon);
+            delete pardon;
+        }
+
+        if (invalidForm) {
+            delete invalidForm;
+        }
+    } catch (std::exception& e) {
         std::cerr << e.what() << std::endl;
     }
 
