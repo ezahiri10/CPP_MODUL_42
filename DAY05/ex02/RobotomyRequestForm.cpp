@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 14:33:15 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 14:52:03 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
     if (executor.getGrade() > this->getGradeToExecute())
         throw AForm::FormNotSignedException();
+    std::cout << "BZZZZZZ... drilling noises..." << std::endl;
     time_t r = time(NULL) % 100;
     if (r % 2 == 0)
         std::cout << this->target << " has been robotomized successfully." << std::endl;

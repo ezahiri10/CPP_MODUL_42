@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:22:36 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 14:35:40 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/19 14:54:58 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void Bureaucrat::executeForm(AForm const &form)
         throw AForm::FormNotSignedException();
     try {
         form.execute(*this);
-        std::cout << *this << " executed " << form;
+        std::cout << *this << " executed " << form << std::endl;
     }
     catch (const std::exception &e)
     {
