@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 18:22:36 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/18 16:39:07 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/20 13:38:14 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(int grade, const std::string &name)
     this->grade = grade;
 }
 
-Bureaucrat::Bureaucrat ()
+Bureaucrat::Bureaucrat () : name("default"), grade(150)
 {}
 
 Bureaucrat::Bureaucrat (const Bureaucrat &other) : name(other.name), grade(other.grade)
@@ -51,23 +51,18 @@ int Bureaucrat::getGrade () const
 
 void Bureaucrat::GradeIncrement()
 {
-    if (this->grade - 1 < 1)
+    if (this->grade <= 1)
             throw GradeTooHighException();
     this->grade--;
 }
 
 void Bureaucrat::GradeDecrement()
 {
-    if (this->grade + 1 > 150)
+    if (this->grade >= 150)
         throw GradeTooLowException();
     this->grade++;
 }
 
-std::ostream &operator<< (std::ostream &os, Bureaucrat &b)
-{
-    os << b.getName () << ", bureaucrat grade " << b.getGrade ();
-    return (os);
-}
 
 const char *Bureaucrat::GradeTooHighException::what () const throw()
 {
@@ -89,4 +84,10 @@ void Bureaucrat::signForm(Form &form)
     {
         std::cout << *this << " couldn’t sign " << form << " because " << e.what() << std::endl;
     }
+}
+
+std::ostream &operator<< (std::ostream &os, Bureaucrat &b)
+{
+    os << b.getName () << ", bureaucrat grade " << b.getGrade ();
+    return (os);
 }
