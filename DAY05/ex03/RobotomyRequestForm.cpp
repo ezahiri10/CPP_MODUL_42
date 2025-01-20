@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 14:52:03 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/20 13:34:30 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &other) : AFo
 
 RobotomyRequestForm &RobotomyRequestForm::operator= (const RobotomyRequestForm &other)
 {
-    this->target = other.target;
+  this->target = other.target;
+    AForm::operator=(other);
     return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/18 13:46:05 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/19 14:21:47 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/20 13:34:27 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &oth
 
 PresidentialPardonForm &PresidentialPardonForm::operator= (const PresidentialPardonForm &other) 
 {
-    this->target = other.target;
+  this->target = other.target;
+    AForm::operator=(other);
     return (*this);
 }
 
