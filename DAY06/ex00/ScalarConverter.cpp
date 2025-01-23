@@ -6,11 +6,25 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:03:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/23 22:24:02 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/23 22:32:56 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+
+ScalarConverter &ScalarConverter::operator=(const ScalarConverter& other)
+{
+    static_cast<void>(other);
+    return (*this);
+}
+
+ScalarConverter::ScalarConverter(const ScalarConverter& other)
+{
+    static_cast<void>(other);
+}
+
+ScalarConverter::ScalarConverter()
+{}
 
 static bool isInfNan(std::string &cv)
 {
@@ -91,4 +105,7 @@ void ScalarConverter::convert(std::string cv)
     }
 }
 
+
+ScalarConverter::~ScalarConverter()
+{}
 
