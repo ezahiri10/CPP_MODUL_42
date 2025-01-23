@@ -6,10 +6,12 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:59:43 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/23 22:05:41 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/23 22:55:34 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef SCALARCONVERTER_HPP
+#define SCALARCONVERTER_HPP
 
 #include <iostream>
 #include <sstream>
@@ -27,3 +29,5 @@ class ScalarConverter
         ScalarConverter &operator= (const ScalarConverter &other);
         static void convert  (std::string cv);
 };
+
+#endif
