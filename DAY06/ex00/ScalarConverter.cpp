@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:03:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/24 12:27:45 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/24 13:37:35 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static bool isInfNan(std::string &cv)
 {
     int pos;
 
-    pos = 4 - (cv == "inff");
-    if (cv == "+inff" || cv == "-inff" || cv == "inff")
+    pos = 3 + (cv == "inff");
+    if (cv == "+inff" || cv == "-inff" || cv == "inff" || cv == "nanf")
         cv.erase(pos, 1); 
     return (cv == "-inf" || cv == "+inf" || cv == "nan" || cv == "inf");
 }
@@ -40,7 +40,7 @@ static void validateArgument (std::string& cv)
 {
     std::stringstream os;
 
-    if (cv.empty() == true)
+    if (cv.empty() == true || cv == "-nan" || cv == "+nan" || cv == "-nanf" || cv == "+nanf")
         throw std::invalid_argument("invalid  arguments");
     if ((!isInfNan (cv) && std::isdigit(cv.at(0)) == false && cv.length() > 1 && cv.at(0) != '-'))
        throw std::invalid_argument("invalid  arguments");
