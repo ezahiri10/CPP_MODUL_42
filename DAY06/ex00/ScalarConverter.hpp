@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 15:59:43 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/24 12:02:02 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/24 14:19:41 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 #include <iostream>
 #include <sstream>
 #include <stdexcept>
-#include <limits>
+#include <climits>
 #include <cmath>
 
 class ScalarConverter
