@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:03:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/23 22:32:56 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/24 12:27:45 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,10 @@ static void validateArgument (std::string& cv)
         throw std::invalid_argument("invalid  arguments");
     if ((!isInfNan (cv) && std::isdigit(cv.at(0)) == false && cv.length() > 1 && cv.at(0) != '-'))
        throw std::invalid_argument("invalid  arguments");
-    if (std::isdigit(cv.at(0)) == false && !isInfNan (cv) && cv.at(0) != '-')
+    if (std::isdigit(cv.at(0)) == false && cv.length() == 1)
     {
         os << static_cast <int>(cv.at(0));
-        cv.erase();
-        cv += os.str();
+        cv = os.str();
     }
 }
 
@@ -87,8 +86,8 @@ static void printConvertedValues (std::string &cv, double d)
         std::cout << "char : " << "'" << static_cast <char>(d)  << "'" << std::endl;
         std::cout << "int : " << static_cast <int>(d) << std::endl;
     }
-    std::cout << "float : " <<  static_cast <float> (d) << "f" << std::endl;
-    std::cout << "double : " <<  static_cast <double> (d) << std::endl;
+    std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast <float> (d) << "f" << std::endl;
+    std::cout << "double : "<< std::fixed << std::setprecision(1) <<  static_cast <double> (d) << std::endl;
 }
   
 void ScalarConverter::convert(std::string cv)
