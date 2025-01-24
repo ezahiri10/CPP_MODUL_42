@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 16:03:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/24 13:37:35 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/24 13:45:36 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,21 +73,21 @@ static void printConvertedValues (std::string &cv, double d)
 {
     if (isInfNan(cv) == true)
     {
-        std::cout << "char : " <<  "impossible" << std::endl;
-        std::cout << "int :" <<  "impossible" << std::endl;
+        std::cout << "char: " <<  "impossible" << std::endl;
+        std::cout << "int:" <<  "impossible" << std::endl;
     }
     else if (std::isprint(static_cast <int>(d)) == false)
     {
-        std::cout << "char : " << "Non displayable" << std::endl;
-        std::cout << "int : " << static_cast <int>(d) << std::endl;
+        std::cout << "char: " << "Non displayable" << std::endl;
+        std::cout << "int: " << static_cast <int>(d) << std::endl;
     }
     else  
     {
-        std::cout << "char : " << "'" << static_cast <char>(d)  << "'" << std::endl;
-        std::cout << "int : " << static_cast <int>(d) << std::endl;
+        std::cout << "char: " << "'" << static_cast <char>(d)  << "'" << std::endl;
+        std::cout << "int: " << static_cast <int>(d) << std::endl;
     }
-    std::cout << "float : " << std::fixed << std::setprecision(1) << static_cast <float> (d) << "f" << std::endl;
-    std::cout << "double : "<< std::fixed << std::setprecision(1) <<  static_cast <double> (d) << std::endl;
+    std::cout << "float: " << std::fixed << std::setprecision(1) << static_cast <float> (d) << "f" << std::endl;
+    std::cout << "double: "<< std::fixed << std::setprecision(1) <<  static_cast <double> (d) << std::endl;
 }
   
 void ScalarConverter::convert(std::string cv)
