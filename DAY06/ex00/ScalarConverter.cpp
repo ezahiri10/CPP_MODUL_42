@@ -55,8 +55,8 @@ static double parseValue(std::string &cv)
 {
     size_t idx;
 
-    if (cv.back() == 'f' && !isInfNan(cv))
-        cv.pop_back();
+    if (cv.at(cv.length() - 1) == 'f' && !isInfNan(cv))
+        cv.erase(cv.length() - 1, 1);
     double number = std::stod (cv.c_str(), &idx);
     while (idx < cv.size())
     {
