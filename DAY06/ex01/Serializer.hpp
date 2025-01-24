@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/23 22:36:50 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/23 22:55:57 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/24 15:46:21 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #define SERIALIZER_HPP
 
 #include <iostream>
-
+#include <cstdint>
 struct  Data
 {
     int a;
