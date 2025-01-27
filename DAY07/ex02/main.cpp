@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:56:45 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/27 14:24:53 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/27 08:59:14 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,17 @@
 
 int main ()
 {
-    Array<int> A[10];
+    try
+    {
+        Array<int> A(10);
 
-    for (int i = 0; i < 10; i++)
-        std::cout << 
+        for (int i = 0; i < 10; i++)
+            std::cout << "A[" << i << "] = " << A[i] << " ,";
+        std::cout << std::endl;
+    }
+    catch (std::exception &e)
+    {
+        std::cout << "Error : "<< e.what () << std::endl ;
+    }
     return (0);
 }

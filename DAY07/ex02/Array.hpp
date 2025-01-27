@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:53:17 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/27 14:23:55 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/27 08:58:58 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,9 +57,13 @@ template <typename T> class Array
         }
         T &operator [](unsigned int index)
         {
-            if (index > this->__size)
+            if (index >= this->__size)
                 throw std::out_of_range("Index out of bounds");
             return this->__arry[index];
+        }
+        unsigned int size()
+        {
+            return (this->__size);
         }
         ~Array ()
         {
@@ -67,3 +71,4 @@ template <typename T> class Array
         }
         
 };
+
