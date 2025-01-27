@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:53:17 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/27 08:58:58 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/27 10:25:27 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ template <typename T> class Array
         }
         Array (const Array &other)
         {
-            this->__size = other->__size;
-            if (other->__size != 0)
+            this->__size = other.__size;
+            if (other.__size != 0)
             {
                 this->__arry = new T[other.__size];
-                for (int i = 0; i < other.__size; i++)
-                    this->__arry = other.__arry[i];   
+                for (unsigned int i = 0; i < other.__size; i++)
+                    this->__arry[i] = other.__arry[i];   
             }
             else
                 this->__arry = NULL;
@@ -44,12 +44,12 @@ template <typename T> class Array
         {
             if (this == &other)
                 return (*this);
-            this->__size = other->__size;
-            if (other->__size != 0)
+            this->__size = other.__size;
+            if (other.__size != 0)
             {
                 this->__arry = new T[other.__size];
-                for (int i = 0; i < other.__size; i++)
-                    this->__arry = other.__arry[i];
+                for (unsigned int i = 0; i < other.__size; i++)
+                    this->__arry[i] = other.__arry[i];
                 delete[] other.__arry;
             }
             else
