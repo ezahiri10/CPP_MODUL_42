@@ -6,9 +6,12 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:53:17 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/01/27 10:25:27 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/01/27 22:17:16 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
 #include <iostream>
 
@@ -42,6 +45,7 @@ template <typename T> class Array
         }
         Array &operator=(const Array &other)
         {
+            delete[] this->__arry; 
             if (this == &other)
                 return (*this);
             this->__size = other.__size;
@@ -50,10 +54,10 @@ template <typename T> class Array
                 this->__arry = new T[other.__size];
                 for (unsigned int i = 0; i < other.__size; i++)
                     this->__arry[i] = other.__arry[i];
-                delete[] other.__arry;
             }
             else
                 this->__arry = NULL;
+            return (*this);
         }
         T &operator [](unsigned int index)
         {
@@ -72,3 +76,5 @@ template <typename T> class Array
         
 };
 
+
+#endif
