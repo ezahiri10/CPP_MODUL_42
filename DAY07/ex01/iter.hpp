@@ -18,6 +18,8 @@
 
 template <typename T> void iter (T *array, size_t lenth, void (*func)(T &))
 {
+    if (!array || !func)
+        return ;
     for (size_t i = 0; i < lenth ; i++)
     {
         func(array[i]);
@@ -26,6 +28,8 @@ template <typename T> void iter (T *array, size_t lenth, void (*func)(T &))
 
 template <typename T> void iter (T *array, size_t lenth, void (*func)(const T &))
 {
+    if (!array || !func)
+        return ;
     for (size_t i = 0; i < lenth ; i++)
     {
         func(array[i]);
