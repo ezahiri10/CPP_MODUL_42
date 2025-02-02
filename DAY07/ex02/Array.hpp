@@ -45,9 +45,9 @@ template <typename T> class Array
         }
         Array &operator=(const Array &other)
         {
-            delete[] this->__arry; 
             if (this == &other)
                 return (*this);
+            delete[] this->__arry; 
             this->__size = other.__size;
             if (other.__size != 0)
             {
@@ -60,6 +60,12 @@ template <typename T> class Array
             return (*this);
         }
         T &operator [](unsigned int index)
+        {
+            if (index >= this->__size)
+                throw std::out_of_range("Index out of bounds");
+            return this->__arry[index];
+        }
+        const  T &operator [](unsigned int index) const
         {
             if (index >= this->__size)
                 throw std::out_of_range("Index out of bounds");
