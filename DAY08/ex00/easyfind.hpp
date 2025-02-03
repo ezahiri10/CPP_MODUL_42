@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/02 19:44:01 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/02 20:01:50 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/03 11:57:48 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ template <typename T> void easyfind (T &arr, int to_find)
     {
         if (*it == to_find)
         {
-            std::cout << "is find " << std::endl;
+            std::cout << "is found " << std::endl;
             return ;
         }
         it++;
