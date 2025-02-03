@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:21:14 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/03 17:49:09 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/03 18:04:06 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ unsigned int Span::shortestSpan()
     return(*(tmp.begin()));
 }
 
-Span::Span(std::set<int>::iterator start,const std::set<int>::iterator& end)
+Span::Span(std::set<int>::const_iterator start,std::set<int>::const_iterator end)
 {
     while (start != end)
     {
