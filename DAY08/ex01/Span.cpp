@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:21:14 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/04 14:59:43 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:06:11 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void Span::addNumber(int to_add)
     this->s.insert(to_add);
 }
 
-unsigned int Span::longestSpan()
+unsigned int Span::longestSpan() const
 {
 
     if (this->s.size() == 0 || this->s.size() == 1)
@@ -48,7 +48,7 @@ unsigned int Span::longestSpan()
     return (*(this->s.rbegin()) - *(s.begin()));
 }
 
-unsigned int Span::shortestSpan()
+unsigned int Span::shortestSpan() const
 {
     if (this->s.size() == 0 || this->s.size() == 1)
         throw std::logic_error(" there are no numbers stored or only one");

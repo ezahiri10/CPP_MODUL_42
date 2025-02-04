@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:10:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/04 15:02:19 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/04 17:05:58 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ class Span
         Span(unsigned int N);
         Span &operator= (const Span &other);
         void addNumber(int to_add);
-        unsigned int longestSpan();
-        unsigned int shortestSpan();
+        unsigned int longestSpan() const;
+        unsigned int shortestSpan() const;
         ~Span();
 };
 

@@ -7,7 +7,7 @@ HEADER = easyfind.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = a.out
+NAME = ex00
 
 all: $(NAME)
 
