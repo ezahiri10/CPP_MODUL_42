@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 15:21:14 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/03 18:04:06 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/04 14:59:43 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,13 +53,13 @@ unsigned int Span::shortestSpan()
     if (this->s.size() == 0 || this->s.size() == 1)
         throw std::logic_error(" there are no numbers stored or only one");
 
-    std::set<int> tmp;
-    for (std::set<int>::iterator it = this->s.begin(); it != (--this->s.end()); it++)
+    std::multiset<int> tmp;
+    for (std::multiset<int>::iterator it = this->s.begin(); it != (--this->s.end()); it++)
         tmp.insert(*(++it) -  *(--it));
     return(*(tmp.begin()));
 }
 
-Span::Span(std::set<int>::const_iterator start,std::set<int>::const_iterator end)
+Span::Span(std::multiset<int>::const_iterator start,std::multiset<int>::const_iterator end)
 {
     while (start != end)
     {
