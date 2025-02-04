@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:25:56 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/04 14:29:42 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/04 14:31:08 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ class MutantStack : public std::stack <T, C>
     public :
        MutantStack () 
        {}
-       MutantStack(const MutantStack<T, C> & copy) //: std::stack<T,C>(copy)
+       MutantStack(const MutantStack<T, C> & copy)
        {}
        MutantStack &operator=(const MutantStack<T> &other)
        {
