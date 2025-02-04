@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:25:56 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/04 14:31:08 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/04 14:51:40 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class MutantStack : public std::stack <T, C>
           private :
                typename C::iterator it;
           public :
-               iterator (typename C::iterator it)
+               iterator (const typename C::iterator &it)
                {
                     this-> it = it;
                }
