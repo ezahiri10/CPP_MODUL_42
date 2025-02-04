@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 18:25:56 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/04 13:00:50 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/04 14:29:42 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,73 +14,75 @@
 #include <deque>
 #include <stack>
 
-template <typename T>
-class MutantStack : public std::stack <T>
+template <typename T, typename C = std::deque<T> >
+class MutantStack : public std::stack <T, C>
 {
-    private :
-        std::deque<T> mstack;
     public :
        MutantStack () 
-       {
-            this->mstack = this->c;
-       }
-       MutantStack(const MutantStack<T> & copy) : std::stack<T>(copy)
-       {
-        this->mstack = copy.mstack;
-        this->mstack = copy.mstack;
-       }
+       {}
+       MutantStack(const MutantStack<T, C> & copy) //: std::stack<T,C>(copy)
+       {}
        MutantStack &operator=(const MutantStack<T> &other)
        {
-            this->mstack = other.mstack;
             return (*this);
        }
-       iterator begin()
-       {
-        return (this->mstack.begin());
-       }
-        iterator end()
-       {
-        return (this->mstack.end());
-       }
-       const_iterator begin() const
-       {
-        return (this->mstack.cbegin());
-       }
-       iterator end()
-       {
-         return (this->mstack.end());
-       }
-       const_iterator end() const
-       {
-        return (this->mstack.cend());
-       }
-       reverse_iterator rbegin()
-       {
-            return (this->mstack.rbegin());
-       }
-       const_reverse_iterator rbegin() const
-       {
-        return (this->mstack.crbegin())
-       }
-       reverse_iterator rend()
-       {
-        return (this->mstack.rend());
-       }
-       const_reverse_iterator rend() const
-       {
-        return (this->mstack.crend());
-       }
-       ~MutantStack ()
-       {
-            this->mstack.clear();
-       }
+     class iterator 
+     {
+          private :
+               typename C::iterator it;
+          public :
+               iterator (typename C::iterator it)
+               {
+                    this-> it = it;
+               }
+               iterator &operator=(const iterator &other)
+               {
+                    this->it = other.it;
+                    return (*this);
+               }
+               T &operator*()
+               {
+                    return (*it);
+               }
+               iterator &operator++()
+               {
+                    it++;
+                    return (*this);
+               }
+               bool operator== (const iterator &other)
+               {
+                    return (this->it == other.it);
+               }
+               bool operator!= (const iterator &other)
+               {
+                    return (this->it != other.it);
+               }
+               iterator &operator++(int)
+               {
+                    iterator tmp = *this;
+                    this->it++;
+                    return (tmp);
+               }
+               iterator &operator--()
+               {
+                    it--;
+                    return (*this);
+               }
+               iterator &operator--(int)
+               {
+                    iterator tmp = *this;
+                    this->it--;
+                    return (tmp);
+               }
+     };
+     iterator begin()
+     {
+          return iterator (this->c.begin());
+     }
+     iterator end()
+     {
+          return iterator (this->c.end());
+     }
+     ~MutantStack ()
+     {}
 };
-    // //    void push (int a);
-    //     bool empty() const;
-    //     int size() const;
-    //     T& top();
-    //     const T& top() const;
-    //     void push (const T& val);
-    //     void pop();
-    //     void swap (MutantStack& x) throw();
-// };
