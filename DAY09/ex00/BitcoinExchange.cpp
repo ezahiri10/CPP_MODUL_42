@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:30:01 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/06 21:32:14 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/06 21:37:57 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void BitcoinExchange::exchange()
         {
             p.CheckForm(line);
             p.ParseDate();
-            p.ParseDate();
+            p.ParseValue();
             p.BankEmployee();
         }
         catch(std::exception &e)
