@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:03:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/06 21:26:43 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/06 21:49:05 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,8 +134,9 @@ void Parser::BankEmployee()
 
      if (it == this->DataBase.end())
         it--;
+    std::cout << this->value << "     " << "   first :"  << it->first << "    " << it->second << std::endl;
     std::cout << this->date << " => " << this->value << " = ";
-    std::cout << StrToDouble(this->value) * StrToDouble(it->second) << std::endl;                                                                                                                             
+    std::cout << (float)StrToDouble(this->value) * (float)StrToDouble(it->second) << std::endl;                                                                                                                             
 }
 
 // int main ()
