@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:03:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/07 11:58:02 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/07 12:13:58 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void Parser::IsValidDate (const std::string *tokens)
     int months = StrToDouble(tokens[1]);
     int days[] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
+    delete[] tokens;
     if (IsLeapYear(year) == true)
         days[1] += 1;
     if (year < 2009 || year > 9999 || months < 1 || months > 12 || day < 1 || day > days[months - 1]) 
@@ -65,7 +66,10 @@ void Parser::ParseDate()
         throw  std::invalid_argument(BADINPUT + this->line);
     std::string *tokens = this->split(this->date, '-');
     if (tokens[0].length() != 4 ||  tokens[1].length() > 2 || tokens[2].length() > 2)
+    {
+        delete[] tokens;
         throw  std::invalid_argument(BADINPUT + this->line);
+    }
     IsValidDate(tokens);
 }
 
