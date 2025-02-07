@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:03:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/07 11:53:01 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:55:37 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ double Parser::StrToDouble(const std::string &s)
     double result = strtod(s.c_str(), &end);
 
     
-    if (*end != '\0' || (s.find('.') == 0 || s.find('.') == s.size() - 1))
+    if (*end != '\0' || s.find('.') == 0 || s.find('.') == s.size() - 1)
         throw  std::invalid_argument(BADINPUT + this->line);
     if (result > INT_MAX)
         throw std::invalid_argument (TOOLARGE);
