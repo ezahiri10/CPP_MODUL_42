@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:03:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/07 11:55:37 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:58:02 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,27 +97,6 @@ double Parser::StrToDouble(const std::string &s)
     return (result);
 }
 
-std::string Parser::GetDate() const
-{
-    return (this->date);
-}
-
-std::string Parser::GetValue() const 
-{
-    return (this->value);
-}
-
-void Parser::setDate (const std::string &date)
-{
-    this->date = date;   
-}
-
-void Parser::setValue (const std::string &value)
-{
-    this->value = value;   
-}
-
-
 void Parser::ParseValue()
 {
     if (this->value.empty() == true)
@@ -155,6 +134,26 @@ std::string* Parser::split(const std::string& str, char delimiter)
     }
     tokens[index] = str.substr(start);
     return tokens;
+}
+
+std::string Parser::GetDate() const
+{
+    return (this->date);
+}
+
+std::string Parser::GetValue() const 
+{
+    return (this->value);
+}
+
+void Parser::setDate (const std::string &date)
+{
+    this->date = date;   
+}
+
+void Parser::setValue (const std::string &value)
+{
+    this->value = value;   
 }
 
 Parser::~Parser()
