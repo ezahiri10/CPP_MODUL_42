@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:03:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/07 11:13:47 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:42:08 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,12 @@ Parser::Parser()
     std::ifstream ifile("data.csv");
     std::string *tokens;
     std::string line;
-    int count;
 
     if (ifile.is_open() == false || std::getline(ifile, line).fail())
         throw std::runtime_error("Error: could not open file.");
     while (std::getline(ifile, line))
     {
-        tokens = split (line, ',', count);
+        tokens = split (line, ',');
         this->DataBase[tokens[0]] = tokens[1];
         delete[] tokens;
     }
@@ -64,9 +63,8 @@ void Parser::ParseDate()
     this->date.erase(this->date.size() - 1, 1);
     if (std::count (this->date.begin() , this->date.end(), '-') != 2)
         throw  std::invalid_argument(BADINPUT + this->line);
-    int a;
-    std::string *tokens = this->split(this->date, '-', a);
-    if (tokens[0].length() != 4 ||  tokens[1].length() != 2 || tokens[2].length() != 2)
+    std::string *tokens = this->split(this->date, '-');
+    if (tokens[0].length() != 4 ||  tokens[1].length() > 2 || tokens[2].length() > 2)
         throw  std::invalid_argument(BADINPUT + this->line);
     IsValidDate(tokens);
 }
@@ -88,9 +86,10 @@ double Parser::StrToDouble(const std::string &s)
     char *end;
     double result = strtod(s.c_str(), &end);
 
-    if (*end != '\0')
+    
+    if (*end != '\0' || (s.find('.') != std::string::npos && s.find('.') == s.size() - 1))
         throw  std::invalid_argument(BADINPUT + this->line);
-    if (result > INT_MAX || result < INT_MIN)
+    if (result > INT_MAX)
         throw std::invalid_argument (TOOLARGE);
     if (result < 0)
         throw std::invalid_argument (NOTPOSITIVE);
@@ -121,6 +120,8 @@ void Parser::setValue (const std::string &value)
 
 void Parser::ParseValue()
 {
+    if (this->value.empty() == true)
+        throw std::invalid_argument(BADINPUT + this->line);
     double r = StrToDouble(this->value);
     if (r * 1 == 0 && this->value.find('-') != std::string::npos)
         throw std::invalid_argument(BADINPUT + this->line);
@@ -138,9 +139,9 @@ void Parser::BankEmployee()
     std::cout << StrToDouble(this->value) * StrToDouble(it->second) << std::endl;                                                                                                                             
 }
 
-std::string* Parser::split(const std::string& str, char delimiter, int& count) 
+std::string* Parser::split(const std::string& str, char delimiter) 
 {
-    count = 1;
+    int count = 1;
     for (size_t i = 0; i < str.length(); i++) 
     {
         if (str[i] == delimiter) 

@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 21:27:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/07 11:11:34 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:20:50 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@ int main (int ac, char **av)
     catch(std::exception &e)
     {
         std::cerr << e.what() << std::endl;
+        return (EXIT_FAILURE);
     }
 }

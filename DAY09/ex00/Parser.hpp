@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:03:29 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/06 21:01:03 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:17:38 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ class Parser
         Parser();
         Parser(const Parser & cpy);
         Parser &operator= (const Parser &other);
-        std::string* split(const std::string& str, char delimiter, int& count);
+        std::string* split(const std::string& str, char delimiter);
         std::string GetValue () const;
         std::string GetDate () const;
         void setDate (const std::string &Date);

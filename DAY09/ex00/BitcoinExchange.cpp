@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:30:01 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/06 21:37:57 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:20:23 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void BitcoinExchange::exchange()
     std::string line;
     std::ifstream ifile (this->NameFile.c_str());
     if (ifile.is_open() == false || std::getline(ifile, line).fail())
-        std::runtime_error("Problem in opening file");
+        throw std::runtime_error("Error: could not open file.");
     Parser p;
 
     while (std::getline(ifile ,line))
