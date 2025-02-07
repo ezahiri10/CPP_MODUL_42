@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:03:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/06 21:49:05 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/07 11:13:47 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ Parser::Parser()
     int count;
 
     if (ifile.is_open() == false || std::getline(ifile, line).fail())
-        throw std::runtime_error("Problem in Database");
+        throw std::runtime_error("Error: could not open file.");
     while (std::getline(ifile, line))
     {
         tokens = split (line, ',', count);
@@ -132,35 +132,12 @@ void Parser::BankEmployee()
 {
     std::map<std::string, std::string>::iterator it =  this->DataBase.lower_bound(this->date);
 
-     if (it == this->DataBase.end())
+    if (it->first != this->date)
         it--;
-    std::cout << this->value << "     " << "   first :"  << it->first << "    " << it->second << std::endl;
     std::cout << this->date << " => " << this->value << " = ";
-    std::cout << (float)StrToDouble(this->value) * (float)StrToDouble(it->second) << std::endl;                                                                                                                             
+    std::cout << StrToDouble(this->value) * StrToDouble(it->second) << std::endl;                                                                                                                             
 }
 
-// int main ()
-// {
-//     // int a;
-//     // std::string *strs  = split ("salam |||| kalam", '|', a);
-
-//     // std::cout << "a = " << a << std::endl;
-//     // for (int i = 0; i < a; i++)
-//     //     std::cout << "strs[] = " << strs[i] << std::endl;
-    
-    //Parser obj;
-
-//     try {
-//         obj.CheckForm ("2016-10-11 | 1");
-//         obj.ParseDate();
-//         obj.ParseValue();
-//         obj.BankEmployee();
-//     }
-//     catch (std::exception &e)
-//     {
-//         std::cerr << e.what() << std::endl;
-//     }
-// }
 std::string* Parser::split(const std::string& str, char delimiter, int& count) 
 {
     count = 1;

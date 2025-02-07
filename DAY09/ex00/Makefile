@@ -7,7 +7,7 @@ HEADER = BitcoinExchange.hpp Parser.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = a.out
+NAME = btc
 
 all: $(NAME)
 
