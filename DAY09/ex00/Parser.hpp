@@ -16,6 +16,7 @@
 #include <sstream>
 #include <algorithm>
 #include <cstdlib> //strtod
+#include <climits>
 
 #define BADINPUT "Error: bad input => "
 #define NOTPOSITIVE "Error: not a positive number."
