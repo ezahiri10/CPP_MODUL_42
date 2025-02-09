@@ -6,17 +6,18 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:34:33 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/09 13:19:45 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/09 13:38:37 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "RPN.hpp"
 
-std::string RPN::trimO(const std::string &s)
+std::string& RPN::trimO(std::string &s)
 {
     size_t pos = s.find_first_not_of("0");
-    return  pos == std::string::npos ? "0" : s.substr(pos);
+    s = (pos == std::string::npos) ? "0" : s.substr(pos);
+    return (s);
 }
 
 bool RPN::IsOperator(int c)
@@ -68,7 +69,7 @@ void RPN::RPNCalculter (const std::string &s)
     {
         if (tokens.find_first_of ("0123456789") != std::string::npos)
         {
-            if (trimO(tokens).size() != 1) 
+            if (trimO(tokens).size() != 1)
                 throw std::invalid_argument ("Error");
             this->Stack.push(std::atoi(tokens.c_str()));
         }

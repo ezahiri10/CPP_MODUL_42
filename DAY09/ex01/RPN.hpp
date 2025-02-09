@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:23:44 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/09 13:17:16 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/09 13:36:46 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class  RPN
         void RPNCalculter (const std::string &s);
         ~RPN();
     private :
-        std::string trimO(const std::string &s);
+        std::string& trimO(std::string &s);
         bool IsOperator(int c);
         void Calculater(const std::string &tokens);
         
