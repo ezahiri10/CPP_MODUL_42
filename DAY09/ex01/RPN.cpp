@@ -6,26 +6,19 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:34:33 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/08 23:25:43 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/09 13:19:45 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include "RPN.hpp"
 
-double RPN::StrToDouble(const std::string &s)
+std::string RPN::trimO(const std::string &s)
 {
-    char *end;
-    double result = strtod(s.c_str(), &end);
-    
-    if (*end != '\0')
-        throw std::invalid_argument ("Error");
-    if (result > 9)
-        throw std::invalid_argument ("Error");
-    if (result < 0)
-        throw std::invalid_argument ("Error");
-    return (result);
+    size_t pos = s.find_first_not_of("0");
+    return  pos == std::string::npos ? "0" : s.substr(pos);
 }
+
 bool RPN::IsOperator(int c)
 {
     return (c == '+' || c == '-' || c == '/' || c == '*');
@@ -74,7 +67,11 @@ void RPN::RPNCalculter (const std::string &s)
     while (is >> tokens)
     {
         if (tokens.find_first_of ("0123456789") != std::string::npos)
-            this->Stack.push(StrToDouble(tokens));
+        {
+            if (trimO(tokens).size() != 1) 
+                throw std::invalid_argument ("Error");
+            this->Stack.push(std::atoi(tokens.c_str()));
+        }
         else if (tokens.find_first_of ("+-/*") != std::string::npos)
             Calculater(tokens);
     }
