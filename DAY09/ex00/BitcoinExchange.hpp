@@ -6,12 +6,14 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 20:17:59 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/06 20:46:15 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/09 12:50:56 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Parser.hpp"
+#ifndef BITCOINEXCHANGE_HPP
+#define BITCOINEXCHANGE_HPP
 
+#include "Parser.hpp"
 
 class  BitcoinExchange
 {
@@ -25,3 +27,5 @@ class  BitcoinExchange
         BitcoinExchange &operator= (const BitcoinExchange &other);
         ~BitcoinExchange();
 };
+
+#endif

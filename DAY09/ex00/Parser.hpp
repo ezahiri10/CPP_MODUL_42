@@ -6,9 +6,12 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:03:29 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/07 11:17:38 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/09 12:54:35 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PARSER_HPP
+#define PARSER_HPP
 
 #include <iostream>
 #include <fstream>
@@ -33,17 +36,21 @@ class Parser
         Parser();
         Parser(const Parser & cpy);
         Parser &operator= (const Parser &other);
-        std::string* split(const std::string& str, char delimiter);
         std::string GetValue () const;
         std::string GetDate () const;
         void setDate (const std::string &Date);
         void setValue (const std::string &value);
         void CheckForm(const std::string &line);
-        double StrToDouble (const std::string& s);
-        void IsValidDate(const std::string *tokens);
-        bool IsLeapYear(int year);
         void ParseDate();
         void ParseValue();
         void BankEmployee();
         ~Parser();
+    private :
+        double StrToDouble (const std::string& s);
+        std::string* split(const std::string& str, char delimiter);
+        void IsValidDate(const std::string *tokens);
+        bool IsLeapYear(int year);
+        
 };
+
+#endif
