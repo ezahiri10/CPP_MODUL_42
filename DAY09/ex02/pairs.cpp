@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:10:51 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/12 18:03:02 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/13 00:33:38 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,30 +85,27 @@ int jacobSthal(int n)
 #include <unistd.h>
 void seqaunceToInsert(std::vector<int> &v, int size)
 {
-    // std::vector<>
-    int a, final , count = 0;
-
     for (int i = 0; i < size; i++)
     {
         v.push_back(jacobSthal(i));
-        if (v.size() > 3)
-        {
-            a = *(v.end() - 1) - 1;
-            final = *(v.end() - 2 - count);
-            count = 0;
-        }
-        while (v.size() > 3 && a != final)
-        {
-            // std::cout << "a = " << a << " final =" << final << std::endl;
-            // sleep(2);
-            v.push_back(a);
-            a--;
-            count++;
-        }
+        // if (v.size() > 3)
+        // {
+        //     a = *(v.end() - 1) - 1;
+        //     final = *(v.end() - 2 - count);
+        //     count = 0;
+        // }
+        // while (v.size() > 3 && a != final)
+        // {
+        //     // std::cout << "a = " << a << " final =" << final << std::endl;
+        //     // sleep(2);
+        //     v.push_back(a);
+        //     a--;
+        //     count++;
+        // }
     }
-    // print_v(v);
-    if (v.size() > 2)
-        v.erase(v.begin() + 1);
+    // print_v();
+    // if (v.size() > 2)
+    //     v.erase(v.begin() + 1);
 }
 
 int binary_search(const std::vector<int> &v, int target)
@@ -116,6 +113,16 @@ int binary_search(const std::vector<int> &v, int target)
     return std::lower_bound(v.begin(), v.end(), target) - v.begin();
 }
 
+bool isInserted(const std::vector<bool> &v)
+{
+    for (int j = 0; j < v.size() ; j++)
+    {
+        if (v[j] != true)
+            return (false);      
+    }
+    return (true);
+    
+}
 void mergeInsertion (const std::vector<int> &v,std::vector<std::pair<int, int> > &pairs)
 {
     std::vector<int> main;    
@@ -126,44 +133,98 @@ void mergeInsertion (const std::vector<int> &v,std::vector<std::pair<int, int> >
         main.push_back(it->first);
         pend.push_back(it->second);
     }
-    main.insert(main.begin(), *(pend.begin()));
-    pend.erase(pend.begin(), pend.begin() + 1);
-    // std::cout << "MAIN :" << std::endl;
-    // print_v(main);
-    // std::cout << "PEND :" << std::endl;
-    // print_v(pend);
     std::vector<int> jacob;
     seqaunceToInsert(jacob, pend.size());
-    int index = 0;
+    std::vector<bool> toCheck(pend.size(), false);
+    int index = 0, pos, x;
     for (int i = 0; i < jacob.size(); i++)
     {
-        index =  binary_search(main, pend[jacob[i]]);
-        main.insert(main.begin() + index, pend[jacob[i]]);
+        index = jacob[i];
+        if (index < jacob.size() && !toCheck[index])
+        {
+            pos =  binary_search(main, pend[index]);
+            main.insert(main.begin() + pos, pend[index]);
+            toCheck[index] = true;
+        }
+       x = index - 1;
+       while (i != 0 && x < jacob.size() && x > jacob[i - 1])
+       {
+            pos =  binary_search(main, pend[x]);
+            main.insert(main.begin() + pos, pend[x]);
+            toCheck[x] = true;
+            x--;
+       }
+    }
+    for (int i = 0; i < toCheck.size(); i++)
+    {
+        if (toCheck[i] == false)
+        {
+            // std::cout << "pend[i] : " << pend[i] << std::endl;
+            pos =  binary_search(main, pend[i]);
+            main.insert(main.begin() + pos, pend[i]);
+            toCheck[i] = true;
+        }
     }
     if (v.size() % 2 != 0)
     {
-        index = binary_search(main,  v[v.size()]);
-        main.insert(main.begin() + index, v[v.size()]);
-        
+        index = binary_search(main,  v[v.size() - 1]);
+        main.insert(main.begin() + index, v[v.size() - 1]);
     }
     print_v(main);
+    
+    // // main.insert(main.begin(), *(pend.begin()));
+    // // pend.erase(pend.begin(), pend.begin() + 1);
+    // // std::cout << "MAIN :" << std::endl;
+    // // print_v(main);
+    // // std::cout << "PEND :" << std::endl;
+    // // print_v(pend);
+    // int index = 0, x = 0, pos = 0;
+
+    // for (int i = 0; i < pend.size(); i++)
+    // {
+    //     // std::cout << "salam" << std::endl;
+    //     if (index < pend.size() && !toCheck[index])
+    //     {
+    //         index = jacob[i];
+    //         // std::cout << "index : " << index << " pend[index] :" << pend[index]<< std::endl;
+    //         pos =  binary_search(main, pend[index]);
+    //         main.insert(main.begin() + pos, pend[index]);
+    //         toCheck[index] = true;
+    //     }
+    //     x = jacob[i] - 1;
+    //     while (i > 0  && x > jacob[i - 1])
+    //     {
+    //         // std::cout << "x : " << x << " pend[index] :" << pend[x]<< std::endl;
+    //         if (isInserted(toCheck)== true)
+    //         {
+    //             print_v(main); 
+    //             return ;
+    //         }
+    //         // sleep(2);
+    //         if(!toCheck[x])
+    //         {
+    //             index = x;
+    //             pos =  binary_search(main, pend[x]);
+    //             main.insert(main.begin() + pos, pend[x]);
+    //             toCheck[x] = true;
+    //         }
+    //         x--;
+    //     }
+    // }
+    // // for (in)
 }
 
 int main ()
 {
     std::vector<int> v;
-
-    // seqaunceToInsert(v, 10);
-    // print_v(v);
-    
     std::vector<std::pair<int, int> > pairs;
 
-    // for (int i = 100; i >= 0 ; i--)
+    // for (int i = 1; i > 0 ; i--)
     // {
     //     v.push_back(i);
     // }
-    fill_vector(v, 10);
-    print_v(v);
+    fill_vector(v, 10000);
+    // print_v(v);
     makePairs(v, pairs);
     mergeInsertion(v, pairs);
     
