@@ -6,24 +6,60 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:31:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/13 18:01:45 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:28:22 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
 
-void print_v(const std::vector<int> &v)
+void PmergeMe::affichTime(char toCheck)
 {
-    for (int i = 0; i < v.size(); i++)
+    std::cout << std::fixed << std::setprecision(5);    
+    std::cout  << "Time to process a range  ";
+    if (toCheck == 'v')
+    {
+        std::cout << this->V.size() ;
+        std::cout <<  " elements with std::vector : " ;
+        std::cout << (double)this->timeV / CLOCKS_PER_SEC * 1e6 << " us";
+    }
+    else
+    {
+        std::cout << this->D.size() ;
+        std::cout <<  " elements with std::deque : " ;
+        std::cout << (double)this->timeD / (double)CLOCKS_PER_SEC * 1e6 << " us";
+    }
+    std::cout << std::endl;
+}
+
+void PmergeMe::print_v(const std::vector<int> &v, char b_a)
+{
+    if (b_a == 'b')
+        std::cout << "Before:\t";
+    else
+        std::cout << "After:\t";
+    for (size_t i = 0; i < v.size(); i++)
     {
         std::cout<< v[i] << " " ;
     }
     std::cout << std::endl;
 }
 
+void print_d(const std::deque<int> &d, char b_a)
+{
+     if (b_a == 'b')
+        std::cout << "Before:\t";
+    else
+        std::cout << "After:\t";
+    for (size_t i = 0; i < d.size(); i++)
+    {
+        std::cout<< d[i] << " " ;
+    }
+    std::cout << std::endl;
+}
+
 void PmergeMe::makePairsV(std::vector<std::pair<int, int> > &pairs)
 {
-    int i = 0;
+    size_t i = 0;
 
     for (;i < this->V.size() - (this->V.size() % 2 != 0); i += 2)
     {
@@ -43,7 +79,7 @@ void PmergeMe::makePairsV(std::vector<std::pair<int, int> > &pairs)
 
 void PmergeMe::makePairsD(std::deque<std::pair<int, int> > &pairs)
 {
-    int i = 0;
+    size_t i = 0;
 
     for (;i < this->D.size() - (this->D.size() % 2 != 0); i += 2)
     {
@@ -77,8 +113,8 @@ void PmergeMe::insertElementV(std::vector<int> &main,const std::vector<int> &pen
     std::vector<int> jacob;
 
     seqaunceToInsertV(jacob, pend.size());
-    int pos = 0, indx = 0;
-    for (int i = 0; i < jacob.size(); i++)
+    size_t pos = 0, indx = 0;
+    for (size_t i = 0; i < jacob.size(); i++)
     {
         indx = jacob[i];
         if (indx < pend.size())
@@ -99,8 +135,8 @@ void PmergeMe::insertElementD(std::deque<int> &main,const std::deque<int> &pend)
     std::deque<int> jacob;
 
     seqaunceToInsertD(jacob, pend.size());
-    int pos = 0, indx = 0;
-    for (int i = 0; i < jacob.size(); i++)
+    size_t pos = 0, indx = 0;
+    for (size_t i = 0; i < jacob.size(); i++)
     {
         indx = jacob[i];
         if (indx < pend.size())
@@ -109,10 +145,10 @@ void PmergeMe::insertElementD(std::deque<int> &main,const std::deque<int> &pend)
            main.insert(main.begin() + pos, pend[indx]); 
         }
     }
-    if (this->V.size() % 2 != 0)
+    if (this->D.size() % 2 != 0)
     {
-        indx = searchIndexD(main,  this->V[this->V.size() - 1]);
-        main.insert(main.begin() + indx, this->V[this->V.size() - 1]);
+        indx = searchIndexD(main,  this->D[this->D.size() - 1]);
+        main.insert(main.begin() + indx, this->D[this->D.size() - 1]);
     }
 }
 
@@ -130,7 +166,8 @@ void PmergeMe::SortV()
         pend.push_back(it->second);
     }
     insertElementV(main, pend);
-    print_v(main);
+    this->timeV = clock() - this->timeV;
+    // print_v(main);
 }
 
 void PmergeMe::SortD()
@@ -146,43 +183,51 @@ void PmergeMe::SortD()
         pend.push_back(it->second);
     }
     insertElementD(main, pend);
+    this->timeD = clock() - this->timeD;
+    print_d(main, 'a');
 }
+#include <unistd.h>
+void PmergeMe::ParseD(int ac, char **av)
+{
+    int r;
 
-// #########################################
+    this->timeD = clock();
+    if (ac == 1)
+            throw std::invalid_argument("Numver of Arguement Invalid");
+    for (int i = 1; i < ac; i++)
+    {
+        r = StrToLong(av[i]);
+        for (size_t j = 0; j < this->D.size(); j++)
+        {
+            if (r == this->D[j])
+            {
+                throw std::invalid_argument("Error Elmenets is Duplicated");
+            }
+        }
+        this->D.push_back(r);
+    }
+}
 
 void PmergeMe::ParseV(int ac, char **av)
 {
     int r;
 
+    this->timeV = clock();
     if (ac == 1)
-            throw std::invalid_argument("Numver of Arguement Invalid");
+            throw std::invalid_argument("Number of Arguement Invalid");
     for (int i = 1; i < ac; i++)
     {
         r = StrToLong(av[i]);
-        for (int j = 0; j < this->V.size(); j++)
+        for (size_t j = 0; j < this->V.size(); j++)
         {
-            if (r == V[j])
+            if (r == this->V[j])
+            {
                 throw std::invalid_argument("Error Elmenets is Duplicated");
+            }
         }
         this->V.push_back(r);
     }
-}
-void PmergeMe::ParseD(int ac, char **av)
-{
-    int r;
-
-    if (ac == 1)
-            throw std::invalid_argument("Numver of Arguement Invalid");
-    for (int i = 1; i < ac; i++)
-    {
-        r = StrToLong(av[i]);
-        for (int j = 0; j < this->D.size(); j++)
-        {
-            if (r == V[j])
-                throw std::invalid_argument("Error Elmenets is Duplicated");
-        }
-        this->D.push_back(r);
-    }
+    print_v(this->V, 'b');
 }
 
 long PmergeMe::StrToLong(const std::string &s)
@@ -214,7 +259,7 @@ int PmergeMe::jacobSthal(int n)
     return (result);
 }
 
-void PmergeMe::seqaunceToInsertV(std::vector<int> &jacob, int size)
+void PmergeMe::seqaunceToInsertV(std::vector<int> &jacob, size_t size)
 {
     int JN;
     int prevJN;
@@ -233,7 +278,7 @@ void PmergeMe::seqaunceToInsertV(std::vector<int> &jacob, int size)
     }
 }
 
-void PmergeMe::seqaunceToInsertD(std::deque<int> &jacob, int size)
+void PmergeMe::seqaunceToInsertD(std::deque<int> &jacob, size_t size)
 {
     int JN;
     int prevJN;
@@ -252,18 +297,3 @@ void PmergeMe::seqaunceToInsertD(std::deque<int> &jacob, int size)
     }
 }
 
-int main (int ac , char **av)
-{
-    try
-    {
-        PmergeMe obj;
-        obj.ParseV(ac, av);
-        obj.SortV();
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << std::endl;
-        return (EXIT_FAILURE);
-    }
-    
-}
