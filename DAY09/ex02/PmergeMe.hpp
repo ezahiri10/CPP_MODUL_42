@@ -6,9 +6,12 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:23:21 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/13 20:41:46 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/13 21:14:14 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef PMERGEME_HPP
+#define PMERGEME_HPP
 
 #include <iostream>
 #include <vector>
@@ -50,3 +53,6 @@ class PmergeMe
         PmergeMe &operator=(const PmergeMe &other);
         ~PmergeMe();
 };
+
+
+#endif
