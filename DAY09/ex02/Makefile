@@ -7,7 +7,7 @@ HEADER = PmergeMe.hpp
 
 OBJ = $(SRC:.cpp=.o)
 
-NAME = a.out
+NAME = PmergeMe
 
 all: $(NAME)
 

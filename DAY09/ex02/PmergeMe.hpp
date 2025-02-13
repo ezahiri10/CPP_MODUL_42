@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:23:21 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/13 20:19:19 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:41:46 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,15 @@ class PmergeMe
         void insertElementV(std::vector<int> &main,const std::vector<int> &pend);
         void insertElementD(std::deque<int> &main,const std::deque<int> &pend);
         void print_v(const std::vector<int> &v, char b_a);
+        void print_d(const std::deque<int> &d, char b_a);
     public :
         void affichTime(char toCheck);
         void ParseV(int ac, char **av);
         void ParseD(int ac, char **av);
         void SortV();
         void SortD();
+        PmergeMe();
+        PmergeMe(const PmergeMe &cpy);
+        PmergeMe &operator=(const PmergeMe &other);
+        ~PmergeMe();
 };

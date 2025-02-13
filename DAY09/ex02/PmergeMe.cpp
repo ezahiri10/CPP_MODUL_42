@@ -6,11 +6,29 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:31:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/13 20:28:22 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/13 20:47:20 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PmergeMe.hpp"
+
+PmergeMe::PmergeMe()
+{};
+
+PmergeMe::PmergeMe(const PmergeMe &cpy) : V(cpy.V), D(cpy.D), timeV(cpy.timeV), timeD(cpy.timeD)
+{}
+
+PmergeMe &PmergeMe::operator=(const PmergeMe &other)
+{
+    if (this != &other)
+    {
+        this->V = other.V;
+        this->D = other.D;
+        this->timeV = other.timeV;
+        this->timeD = other.timeD;
+    }
+    return (*this);
+}
 
 void PmergeMe::affichTime(char toCheck)
 {
@@ -34,9 +52,9 @@ void PmergeMe::affichTime(char toCheck)
 void PmergeMe::print_v(const std::vector<int> &v, char b_a)
 {
     if (b_a == 'b')
-        std::cout << "Before:\t";
+        std::cout << "Before:  ";
     else
-        std::cout << "After:\t";
+        std::cout << "After:  ";
     for (size_t i = 0; i < v.size(); i++)
     {
         std::cout<< v[i] << " " ;
@@ -44,7 +62,7 @@ void PmergeMe::print_v(const std::vector<int> &v, char b_a)
     std::cout << std::endl;
 }
 
-void print_d(const std::deque<int> &d, char b_a)
+void PmergeMe::print_d(const std::deque<int> &d, char b_a)
 {
      if (b_a == 'b')
         std::cout << "Before:\t";
@@ -167,7 +185,6 @@ void PmergeMe::SortV()
     }
     insertElementV(main, pend);
     this->timeV = clock() - this->timeV;
-    // print_v(main);
 }
 
 void PmergeMe::SortD()
@@ -186,23 +203,21 @@ void PmergeMe::SortD()
     this->timeD = clock() - this->timeD;
     print_d(main, 'a');
 }
-#include <unistd.h>
+
 void PmergeMe::ParseD(int ac, char **av)
 {
     int r;
 
     this->timeD = clock();
     if (ac == 1)
-            throw std::invalid_argument("Numver of Arguement Invalid");
+            throw std::invalid_argument("Number of Arguement Invalid");
     for (int i = 1; i < ac; i++)
     {
         r = StrToLong(av[i]);
         for (size_t j = 0; j < this->D.size(); j++)
         {
             if (r == this->D[j])
-            {
-                throw std::invalid_argument("Error Elmenets is Duplicated");
-            }
+                throw std::invalid_argument("Error : Found Duplicate");
         }
         this->D.push_back(r);
     }
@@ -221,9 +236,7 @@ void PmergeMe::ParseV(int ac, char **av)
         for (size_t j = 0; j < this->V.size(); j++)
         {
             if (r == this->V[j])
-            {
-                throw std::invalid_argument("Error Elmenets is Duplicated");
-            }
+                throw std::invalid_argument("Error : Found Duplicate");
         }
         this->V.push_back(r);
     }
@@ -271,9 +284,7 @@ void PmergeMe::seqaunceToInsertV(std::vector<int> &jacob, size_t size)
         prevJN = jacobSthal(i - 1);
         JN = jacobSthal(i); 
         while (JN > prevJN)
-        { 
             jacob.push_back(JN--);
-        }
         i++;
     }
 }
@@ -297,3 +308,5 @@ void PmergeMe::seqaunceToInsertD(std::deque<int> &jacob, size_t size)
     }
 }
 
+PmergeMe::~PmergeMe()
+{}
