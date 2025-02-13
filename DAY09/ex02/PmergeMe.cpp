@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 12:31:07 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/13 17:31:53 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/13 18:01:45 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,26 +41,42 @@ void PmergeMe::makePairsV(std::vector<std::pair<int, int> > &pairs)
         std::sort(pairs.begin(), pairs.end());
 }
 
+void PmergeMe::makePairsD(std::deque<std::pair<int, int> > &pairs)
+{
+    int i = 0;
+
+    for (;i < this->D.size() - (this->D.size() % 2 != 0); i += 2)
+    {
+        if (this->D[i] > this->D[i + 1])
+            pairs.push_back(std::make_pair(this->D[i], this->D[i + 1]));
+        else 
+            pairs.push_back(std::make_pair(this->D[i + 1], this->D[i]));
+    }
+    if (this->D.size() % 2 != 0)
+    {
+        pairs.push_back(std::make_pair(this->D[i], -1));
+        std::sort(pairs.begin(), pairs.end() - 1);
+    }
+    else
+        std::sort(pairs.begin(), pairs.end());
+}
+
+
 int PmergeMe::searchIndexV(const std::vector<int> &main, int target)
 {
     return std::lower_bound(main.begin(), main.end(), target) - main.begin();
 }
 
-// void inse
-void PmergeMe::SortV()
+int PmergeMe::searchIndexD(const std::deque<int> &main, int target)
 {
-    std::vector<int> main;
-    std::vector<int> pend;
-    std::vector<int> jacob;
-    std::vector<std::pair<int, int> > pairs;
+    return std::lower_bound(main.begin(), main.end(), target) - main.begin();
+}
 
-    makePairsV(pairs);
-    for (std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end() - (this->V.size() % 2 != 0); it++)
-    {
-        main.push_back(it->first);
-        pend.push_back(it->second);
-    }
-    seqaunceToInsert(jacob, pend.size());
+void PmergeMe::insertElementV(std::vector<int> &main,const std::vector<int> &pend)
+{
+    std::vector<int> jacob;
+
+    seqaunceToInsertV(jacob, pend.size());
     int pos = 0, indx = 0;
     for (int i = 0; i < jacob.size(); i++)
     {
@@ -76,7 +92,60 @@ void PmergeMe::SortV()
         indx = searchIndexV(main,  this->V[this->V.size() - 1]);
         main.insert(main.begin() + indx, this->V[this->V.size() - 1]);
     }
+}
+
+void PmergeMe::insertElementD(std::deque<int> &main,const std::deque<int> &pend)
+{
+    std::deque<int> jacob;
+
+    seqaunceToInsertD(jacob, pend.size());
+    int pos = 0, indx = 0;
+    for (int i = 0; i < jacob.size(); i++)
+    {
+        indx = jacob[i];
+        if (indx < pend.size())
+        {
+           pos = searchIndexD(main, pend[indx]);
+           main.insert(main.begin() + pos, pend[indx]); 
+        }
+    }
+    if (this->V.size() % 2 != 0)
+    {
+        indx = searchIndexD(main,  this->V[this->V.size() - 1]);
+        main.insert(main.begin() + indx, this->V[this->V.size() - 1]);
+    }
+}
+
+
+void PmergeMe::SortV()
+{
+    std::vector<int> main;
+    std::vector<int> pend;
+    std::vector<std::pair<int, int> > pairs;
+
+    makePairsV(pairs);
+    for (std::vector<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end() - (this->V.size() % 2 != 0); it++)
+    {
+        main.push_back(it->first);
+        pend.push_back(it->second);
+    }
+    insertElementV(main, pend);
     print_v(main);
+}
+
+void PmergeMe::SortD()
+{
+    std::deque<int> main;
+    std::deque<int> pend;
+    std::deque<std::pair<int, int> > pairs;
+
+    makePairsD(pairs);
+    for (std::deque<std::pair<int, int> >::iterator it = pairs.begin(); it != pairs.end() - (this->D.size() % 2 != 0); it++)
+    {
+        main.push_back(it->first);
+        pend.push_back(it->second);
+    }
+    insertElementD(main, pend);
 }
 
 // #########################################
@@ -85,6 +154,8 @@ void PmergeMe::ParseV(int ac, char **av)
 {
     int r;
 
+    if (ac == 1)
+            throw std::invalid_argument("Numver of Arguement Invalid");
     for (int i = 1; i < ac; i++)
     {
         r = StrToLong(av[i]);
@@ -94,6 +165,23 @@ void PmergeMe::ParseV(int ac, char **av)
                 throw std::invalid_argument("Error Elmenets is Duplicated");
         }
         this->V.push_back(r);
+    }
+}
+void PmergeMe::ParseD(int ac, char **av)
+{
+    int r;
+
+    if (ac == 1)
+            throw std::invalid_argument("Numver of Arguement Invalid");
+    for (int i = 1; i < ac; i++)
+    {
+        r = StrToLong(av[i]);
+        for (int j = 0; j < this->D.size(); j++)
+        {
+            if (r == V[j])
+                throw std::invalid_argument("Error Elmenets is Duplicated");
+        }
+        this->D.push_back(r);
     }
 }
 
@@ -126,20 +214,39 @@ int PmergeMe::jacobSthal(int n)
     return (result);
 }
 
-void PmergeMe::seqaunceToInsert(std::vector<int> &v, int size)
+void PmergeMe::seqaunceToInsertV(std::vector<int> &jacob, int size)
 {
     int JN;
     int prevJN;
     int i = 1;
 
-    v.push_back(0);
-    while (v.size() < size)
+    jacob.push_back(0);
+    while (jacob.size() < size)
     {
         prevJN = jacobSthal(i - 1);
         JN = jacobSthal(i); 
         while (JN > prevJN)
         { 
-            v.push_back(JN--);
+            jacob.push_back(JN--);
+        }
+        i++;
+    }
+}
+
+void PmergeMe::seqaunceToInsertD(std::deque<int> &jacob, int size)
+{
+    int JN;
+    int prevJN;
+    int i = 1;
+
+    jacob.push_back(0);
+    while (jacob.size() < size)
+    {
+        prevJN = jacobSthal(i - 1);
+        JN = jacobSthal(i); 
+        while (JN > prevJN)
+        { 
+            jacob.push_back(JN--);
         }
         i++;
     }
@@ -147,11 +254,6 @@ void PmergeMe::seqaunceToInsert(std::vector<int> &v, int size)
 
 int main (int ac , char **av)
 {
-    if (ac == 1)
-    {
-        std::cerr << "number of elements " << std::endl;
-        return (EXIT_FAILURE);
-    }
     try
     {
         PmergeMe obj;
