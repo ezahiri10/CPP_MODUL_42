@@ -15,7 +15,8 @@
 #include <deque>
 #include <utility>
 #include <algorithm>
-#include <time.h>
+#include <ctime>
+#include <climits>
 #include <iomanip>
 
 class PmergeMe
