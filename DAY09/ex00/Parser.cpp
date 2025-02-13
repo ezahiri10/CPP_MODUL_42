@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/05 21:03:23 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/07 12:13:58 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/13 11:16:44 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,17 @@ Parser::Parser()
     std::string line;
 
     if (ifile.is_open() == false || std::getline(ifile, line).fail())
+    {
+        ifile.close();
         throw std::runtime_error("Error: could not open file.");
+    }
     while (std::getline(ifile, line))
     {
         tokens = split (line, ',');
         this->DataBase[tokens[0]] = tokens[1];
         delete[] tokens;
     }
+    ifile.close(); 
 }
 
 Parser::Parser (const Parser &cpy) : DataBase(cpy.DataBase)

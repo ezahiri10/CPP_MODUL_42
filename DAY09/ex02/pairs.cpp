@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:10:51 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/13 00:33:38 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/13 10:31:22 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,11 +219,11 @@ int main ()
     std::vector<int> v;
     std::vector<std::pair<int, int> > pairs;
 
-    // for (int i = 1; i > 0 ; i--)
-    // {
-    //     v.push_back(i);
-    // }
-    fill_vector(v, 10000);
+    for (int i = 10000; i >= 0 ; i--)
+    {
+        v.push_back(i);
+    }
+    // fill_vector(v, 10000);
     // print_v(v);
     makePairs(v, pairs);
     mergeInsertion(v, pairs);
