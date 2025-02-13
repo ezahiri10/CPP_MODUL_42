@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 11:10:51 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/13 10:31:22 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/13 14:48:46 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,25 +85,30 @@ int jacobSthal(int n)
 #include <unistd.h>
 void seqaunceToInsert(std::vector<int> &v, int size)
 {
+    int count = 0, a = 0, final = 0;
     for (int i = 0; i < size; i++)
     {
         v.push_back(jacobSthal(i));
-        // if (v.size() > 3)
-        // {
-        //     a = *(v.end() - 1) - 1;
-        //     final = *(v.end() - 2 - count);
-        //     count = 0;
-        // }
-        // while (v.size() > 3 && a != final)
-        // {
-        //     // std::cout << "a = " << a << " final =" << final << std::endl;
-        //     // sleep(2);
-        //     v.push_back(a);
-        //     a--;
-        //     count++;
-        // }
+        if (v.size() > 3)
+        {
+            if (v.size() > size)
+                return ;
+            a = *(v.end() - 1) - 1;
+            final = *(v.end() - 2 - count);
+            count = 0;
+        }
+        while (v.size() > 3 && a != final)
+        {
+            if (v.size() > size)
+                return ;
+            // std::cout << "a = " << a << " final =" << final << std::endl;
+            // sleep(2);
+            v.push_back(a);
+            a--;
+            count++;
+        }
     }
-    // print_v();
+    print_v(v);
     // if (v.size() > 2)
     //     v.erase(v.begin() + 1);
 }
@@ -139,21 +144,21 @@ void mergeInsertion (const std::vector<int> &v,std::vector<std::pair<int, int> >
     int index = 0, pos, x;
     for (int i = 0; i < jacob.size(); i++)
     {
-        index = jacob[i];
-        if (index < jacob.size() && !toCheck[index])
+        if (index < jacob.size())
         {
+            index = jacob[i];
             pos =  binary_search(main, pend[index]);
             main.insert(main.begin() + pos, pend[index]);
             toCheck[index] = true;
         }
-       x = index - 1;
-       while (i != 0 && x < jacob.size() && x > jacob[i - 1])
-       {
-            pos =  binary_search(main, pend[x]);
-            main.insert(main.begin() + pos, pend[x]);
-            toCheck[x] = true;
-            x--;
-       }
+    //    x = index - 1;
+    //    while (i != 0 && x < jacob.size() && x > jacob[i - 1])
+    //    {
+    //         pos =  binary_search(main, pend[x]);
+    //         main.insert(main.begin() + pos, pend[x]);
+    //         toCheck[x] = true;
+    //         x--;
+    //    }
     }
     for (int i = 0; i < toCheck.size(); i++)
     {
@@ -219,7 +224,7 @@ int main ()
     std::vector<int> v;
     std::vector<std::pair<int, int> > pairs;
 
-    for (int i = 10000; i >= 0 ; i--)
+    for (int i = 100; i >= 0 ; i--)
     {
         v.push_back(i);
     }
