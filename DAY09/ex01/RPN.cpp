@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:34:33 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/09 13:38:37 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/14 12:59:49 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,9 +40,9 @@ void RPN::Calculater(const std::string &tokens)
 {
      if (Stack.size() < 2)
             throw std::invalid_argument ("Error");
-    int a = this->Stack.top();
+    double a = this->Stack.top();
     this->Stack.pop();
-    int b = this->Stack.top();
+    double b = this->Stack.top();
     this->Stack.pop();
     if (tokens == "+")
         this->Stack.push(a + b);

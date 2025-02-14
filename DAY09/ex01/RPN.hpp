@@ -6,7 +6,7 @@
 /*   By: ezahiri <ezahiri@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 16:23:44 by ezahiri           #+#    #+#             */
-/*   Updated: 2025/02/09 13:39:02 by ezahiri          ###   ########.fr       */
+/*   Updated: 2025/02/14 12:59:19 by ezahiri          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 class  RPN
 {
     private :
-        std::stack<int> Stack;
+        std::stack<double> Stack;
     public :
         RPN();
         RPN (const RPN &cpy);
